@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  classroom_id: 1
+  userid: MyString
+  name: MyString
+  icon: MyString
+  introduce: MyString
+  password: MyString
+  release: false
+
+two:
+  classroom_id: 1
+  userid: MyString
+  name: MyString
+  icon: MyString
+  introduce: MyString
+  password: MyString
+  release: false
