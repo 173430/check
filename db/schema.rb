@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_10_21_013847) do
+=======
+ActiveRecord::Schema.define(version: 2019_10_21_013601) do
+
+  create_table "answers", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "question_id"
+    t.string "answer"
+    t.string "picture"
+    t.boolean "best"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+>>>>>>> 21aa417b0fca7ce8bef53a15ac7300e86c7f6974
 
   create_table "classrooms", force: :cascade do |t|
     t.integer "grade"
@@ -26,6 +40,7 @@ ActiveRecord::Schema.define(version: 2019_10_21_013847) do
     t.datetime "updated_at", null: false
   end
 
+<<<<<<< HEAD
   create_table "notecomments", force: :cascade do |t|
     t.integer "note_id"
     t.integer "user_id"
@@ -45,6 +60,15 @@ ActiveRecord::Schema.define(version: 2019_10_21_013847) do
     t.string "extra"
     t.integer "good"
     t.boolean "release"
+=======
+  create_table "questions", force: :cascade do |t|
+    t.string "question"
+    t.integer "grade"
+    t.integer "subject_id"
+    t.string "picture"
+    t.boolean "nameless"
+    t.boolean "solve"
+>>>>>>> 21aa417b0fca7ce8bef53a15ac7300e86c7f6974
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

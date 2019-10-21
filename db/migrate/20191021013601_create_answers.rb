@@ -1,0 +1,13 @@
+class CreateAnswers < ActiveRecord::Migration[5.2]
+  def change
+    create_table :answers do |t|
+      t.integer :user_id
+      t.integer :question_id
+      t.string :answer
+      t.string :picture
+      t.boolean :best
+
+      t.timestamps
+    end
+  end
+end

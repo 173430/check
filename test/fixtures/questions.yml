@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  question: MyString
+  grade: 1
+  subject_id: 
+  picture: MyString
+  nameless: false
+  solve: false
+
+two:
+  question: MyString
+  grade: 1
+  subject_id: 
+  picture: MyString
+  nameless: false
+  solve: false
