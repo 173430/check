@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @notecomment.note_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @notecomment.user_id %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @notecomment.comment %>
+</p>
+
+<p>
+  <strong>Picture:</strong>
+  <%= @notecomment.picture %>
+</p>
+
+<%= link_to 'Edit', edit_notecomment_path(@notecomment) %> |
+<%= link_to 'Back', notecomments_path %>

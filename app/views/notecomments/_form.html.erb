@@ -1,0 +1,37 @@
+<%= form_with(model: notecomment, local: true) do |form| %>
+  <% if notecomment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(notecomment.errors.count, "error") %> prohibited this notecomment from being saved:</h2>
+
+      <ul>
+      <% notecomment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :note_id %>
+    <%= form.number_field :note_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.number_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :comment %>
+    <%= form.text_field :comment %>
+  </div>
+
+  <div class="field">
+    <%= form.label :picture %>
+    <%= form.text_field :picture %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

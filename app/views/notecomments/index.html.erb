@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Notecomments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Note</th>
+      <th>User</th>
+      <th>Comment</th>
+      <th>Picture</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @notecomments.each do |notecomment| %>
+      <tr>
+        <td><%= notecomment.note_id %></td>
+        <td><%= notecomment.user_id %></td>
+        <td><%= notecomment.comment %></td>
+        <td><%= notecomment.picture %></td>
+        <td><%= link_to 'Show', notecomment %></td>
+        <td><%= link_to 'Edit', edit_notecomment_path(notecomment) %></td>
+        <td><%= link_to 'Destroy', notecomment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Notecomment', new_notecomment_path %>

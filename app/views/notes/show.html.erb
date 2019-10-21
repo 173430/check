@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @note.user_id %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @note.title %>
+</p>
+
+<p>
+  <strong>Picture:</strong>
+  <%= @note.picture %>
+</p>
+
+<p>
+  <strong>Coverpicture:</strong>
+  <%= @note.coverpicture %>
+</p>
+
+<p>
+  <strong>Grade:</strong>
+  <%= @note.grade_id %>
+</p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @note.subject_id %>
+</p>
+
+<p>
+  <strong>Extra:</strong>
+  <%= @note.extra %>
+</p>
+
+<p>
+  <strong>Good:</strong>
+  <%= @note.good %>
+</p>
+
+<p>
+  <strong>Release:</strong>
+  <%= @note.release %>
+</p>
+
+<%= link_to 'Edit', edit_note_path(@note) %> |
+<%= link_to 'Back', notes_path %>

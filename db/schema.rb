@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_18_022042) do
+ActiveRecord::Schema.define(version: 2019_10_21_013847) do
 
   create_table "classrooms", force: :cascade do |t|
     t.integer "grade"
@@ -22,6 +22,29 @@ ActiveRecord::Schema.define(version: 2019_10_18_022042) do
 
   create_table "grades", force: :cascade do |t|
     t.string "grade"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "notecomments", force: :cascade do |t|
+    t.integer "note_id"
+    t.integer "user_id"
+    t.string "comment"
+    t.string "picture"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "notes", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "title"
+    t.string "picture"
+    t.string "coverpicture"
+    t.integer "grade_id"
+    t.integer "subject_id"
+    t.string "extra"
+    t.integer "good"
+    t.boolean "release"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
