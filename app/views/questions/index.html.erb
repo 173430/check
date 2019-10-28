@@ -1,16 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Questions</h1>
+<h1>Q&A</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Question</th>
-      <th>Grade</th>
-      <th>Subject</th>
-      <th>Picture</th>
-      <th>Nameless</th>
-      <th>Solve</th>
+      <th>質問</th>
+      <th>学年</th>
+      <th>教科</th>
+      <th>画像</th>
+      <th>匿名</th>
+      <th>解決</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,11 +22,16 @@
         <td><%= question.grade %></td>
         <td><%= question.subject_id %></td>
         <td><%= question.picture %></td>
+            <% if question.picture.present? %>
+              <br>
+              <%= image_tag question.picture %>
+            <% end %>
+        </td>
         <td><%= question.nameless %></td>
         <td><%= question.solve %></td>
-        <td><%= link_to 'Show', question %></td>
-        <td><%= link_to 'Edit', edit_question_path(question) %></td>
-        <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '詳細', question %></td>
+        <td><%= link_to '編集', edit_question_path(question) %></td>
+        <td><%= link_to '削除', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,4 +39,4 @@
 
 <br>
 
-<%= link_to 'New Question', new_question_path %>
+<%= link_to '質問する', new_question_path %>
