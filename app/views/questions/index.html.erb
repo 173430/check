@@ -21,8 +21,9 @@
         <td><%= question.question %></td>
         <td><%= question.grade %></td>
         <td><%= question.subject_id %></td>
-        <td><%= question.picture %></td>
+        <td><%= question.picture %>
             <% if question.picture.present? %>
+              <% logger.debug "ファイル名 " + question.picture %>
               <br>
               <%= image_tag question.picture %>
             <% end %>
