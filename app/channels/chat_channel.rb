@@ -1,7 +1,7 @@
 class ChatChannel < ApplicationCable::Channel
   def subscribed
     stream_from "chat_channel"
-    ActionCable.server.broadcast 'chat_channel',message:'connected.'
+    ActionCable.server.broadcast 'chat_channel',message:'入室しました'
   end
 
   def unsubscribed
