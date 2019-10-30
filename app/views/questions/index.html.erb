@@ -28,8 +28,20 @@
               <%= image_tag question.picture %>
             <% end %>
         </td>
-        <td><%= question.nameless %></td>
-        <td><%= question.solve %></td>
+        <td>
+          <% if question.nameless == true %>
+            <td>匿名</td>
+          <% else %>
+            名前
+          <% end %>
+        </td>
+        <td>
+          <% if question.solve == true %>
+            <td>解決</td>
+          <% else %>
+            未解決
+          <% end %>
+        </td>
         <td><%= link_to '詳細', question %></td>
         <td><%= link_to '編集', edit_question_path(question) %></td>
         <td><%= link_to '削除', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
