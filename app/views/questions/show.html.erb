@@ -22,12 +22,24 @@
 
 <p>
   <strong>匿名:</strong>
-  <%= @question.nameless %>
+  <td>
+  <% if @question.nameless == true %>
+    匿名
+  <% else %>
+    名前
+  <% end %>
+</td>
 </p>
 
 <p>
   <strong>解決:</strong>
-  <%= @question.solve %>
+  <td>
+  <% if @question.solve == true %>
+    解決
+  <% else %>
+    未解決
+  <% end %>
+</td>
 </p>
 
 <%= link_to '編集', edit_question_path(@question) %> |
