@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'chat/show'
   resources :notecomments
   resources :notes
   resources :answers

@@ -15,3 +15,11 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+function postMessage(){
+    event.preventDefault();
+    var element = document.querySelector('input[type="text"]');
+    App.chat.speak(element.value);
+    element.value = '';
+  }
+  
