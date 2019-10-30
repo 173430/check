@@ -11,52 +11,57 @@
     </div>
   <% end %>
 
+  <!--
   <div class="field">
-    <%= form.label :user_id %>
+    <%= form.label :投稿者 %>
     <%= form.number_field :user_id %>
+  
   </div>
+  -->
 
   <div class="field">
-    <%= form.label :title %>
+    <%= form.label :タイトル %>
     <%= form.text_field :title %>
   </div>
 
   <div class="field">
-    <%= form.label :picture %>
-    <%= form.text_field :picture %>
+    <%= form.label :ノート %>
+    <%= form.file_field :picture %>
   </div>
 
   <div class="field">
-    <%= form.label :coverpicture %>
-    <%= form.text_field :coverpicture %>
+    <%= form.label :表紙 %>
+    <%= form.file_field :coverpicture %>
   </div>
 
   <div class="field">
-    <%= form.label :grade_id %>
+    <%= form.label :学年 %>
     <%= form.number_field :grade_id %>
   </div>
 
   <div class="field">
-    <%= form.label :subject_id %>
+    <%= form.label :教科 %>
     <%= form.number_field :subject_id %>
   </div>
 
   <div class="field">
-    <%= form.label :extra %>
+    <%= form.label :補足 %>
     <%= form.text_field :extra %>
   </div>
 
+  <!--
   <div class="field">
-    <%= form.label :good %>
+    <%= form.label :いいね %>
     <%= form.text_field :good %>
   </div>
+  -->
 
   <div class="field">
-    <%= form.label :release %>
+    <%= form.label :公開する %>
     <%= form.check_box :release %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit '作成する' %>
   </div>
 <% end %>

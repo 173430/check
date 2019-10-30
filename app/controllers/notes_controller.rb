@@ -26,15 +26,33 @@ class NotesController < ApplicationController
   def create
     @note = Note.new(note_params)
 
+    if params[:note][:picture].present?
+      @note.picture = params[:note][:picture].original_filename
+logger.debug @note.picture
+      File.open("app/assets/images/notes/contents/#{@note.picture}", 'w+b') { |f|
+        f.write(params[:note][:picture].read)
+      }
+    end
+
+    if params[:note][:coverpicture].present?
+      @note.coverpicture = params[:note][:coverpicture].original_filename
+logger.debug @note.coverpicture
+      File.open("app/assets/images/notes/cover/#{@note.coverpicture}", 'w+b') { |f|
+        f.write(params[:note][:coverpicture].read)
+      }
+    end
+
+
     respond_to do |format|
       if @note.save
-        format.html { redirect_to @note, notice: 'Note was successfully created.' }
-        format.json { render :show, status: :created, location: @note }
+        format.html { redirect_to notes_path }
+        format.json { render :index, status: :created, location: @note }
       else
         format.html { render :new }
         format.json { render json: @note.errors, status: :unprocessable_entity }
       end
     end
+ 
   end
 
   # PATCH/PUT /notes/1
