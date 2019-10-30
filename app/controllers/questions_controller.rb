@@ -26,6 +26,14 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
 
+    if params[:question][:filename].present?
+      @question.filename = params[:question][:filename].original_filename
+
+      File.open("#{@question.filename}",'w+b') { |f|
+        f.write(params[:question][:filename].read)
+    }
+    end
+
     respond_to do |format|
       if @question.save
         format.html { redirect_to @question, notice: 'Question was successfully created.' }
