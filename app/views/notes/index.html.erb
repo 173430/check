@@ -5,15 +5,15 @@
 <table>
   <thead>
     <tr>
-      <th>User</th>
-      <th>Title</th>
-      <th>Picture</th>
-      <th>Coverpicture</th>
-      <th>Grade</th>
-      <th>Subject</th>
-      <th>Extra</th>
-      <th>Good</th>
-      <th>Release</th>
+      <th>投稿者</th>
+      <th>タイトル</th>
+      <th width=120>ノート</th>
+      <th width=120>表紙</th>
+      <th>学年</th>
+      <th>教科</th>
+      <th>補足</th>
+      <th>いいね</th>
+      <th>公開情報</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -23,20 +23,30 @@
       <tr>
         <td><%= note.user_id %></td>
         <td><%= note.title %></td>
-        <td><%= note.picture %></td>
-        <td><%= note.coverpicture %></td>
+        <td width=200>
+        <% if note.picture.present? %>
+          <br>
+          <%= image_tag(asset_path('notes/contents/' + note.picture), :width => '100%') %>
+        <% end %>
+        </td>
+        <td width=200>
+        <% if note.coverpicture.present? %>
+          <br>
+          <%= image_tag(asset_path('notes/cover/' + note.coverpicture), :width => '100%') %>
+        <% end %>
+        </td>
         <td><%= note.grade_id %></td>
         <td><%= note.subject_id %></td>
         <td><%= note.extra %></td>
         <td><%= note.good %></td>
-        <td><%= note.release %></td>
-        <td><%= link_to 'Show', note %></td>
-        <td><%= link_to 'Edit', edit_note_path(note) %></td>
-        <td><%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= note.release %></td>     
+        <td><%= link_to '編集', edit_note_path(note) %></td>
+        <td><%= link_to '削除', note, method: :delete, data: { confirm: '本当に削除しますか？' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
 
 <br>
 
