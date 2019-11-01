@@ -21,12 +21,11 @@
         <td><%= question.question %></td>
         <td><%= question.grade %></td>
         <td><%= question.subject_id %></td>
-        <td><%= question.picture %>
-            <% if question.picture.present? %>
-              <% logger.debug "ファイル名 " + question.picture %>
-              <br>
-              <%= image_tag question.picture %>
-            <% end %>
+        <td width=200>
+        <% if question.picture.present? %>
+          <br>
+          <%= image_tag(asset_path('q&a/questions/' + question.picture), :width => '100%') %>
+        <% end %>
         </td>
         <td>
           <% if question.nameless == true %>
