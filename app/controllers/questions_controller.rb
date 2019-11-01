@@ -26,11 +26,11 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
 
-    if params[:question][:filename].present?
-      @question.filename = params[:question][:filename].original_filename
-
-      File.open("#{@question.filename}",'w+b') { |f|
-        f.write(params[:question][:filename].read)
+    if params[:question][:picture].present?
+      @question.picture = params[:question][:picture].original_filename
+      logger.debug @question.picture
+      File.open("app/assets/images/q&a/questions/#{@note.picture}", 'w+b') { |f|
+        f.write(params[:question][:picture].read)
     }
     end
 
