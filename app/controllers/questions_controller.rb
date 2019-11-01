@@ -48,7 +48,6 @@ class QuestionsController < ApplicationController
   # PATCH/PUT /questions/1
   # PATCH/PUT /questions/1.json
   def update
-    @question = Question.update(question_params)
 
     if params[:question][:picture].present?
       @question.picture = params[:question][:picture].original_filename
