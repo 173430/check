@@ -29,7 +29,7 @@ class QuestionsController < ApplicationController
     if params[:question][:picture].present?
       @question.picture = params[:question][:picture].original_filename
       logger.debug @question.picture
-      File.open("app/assets/images/q&a/questions/#{@note.picture}", 'w+b') { |f|
+      File.open("app/assets/images/q&a/questions/#{@question.picture}", 'w+b') { |f|
         f.write(params[:question][:picture].read)
     }
     end
