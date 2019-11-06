@@ -25,7 +25,13 @@ class QuestionsController < ApplicationController
   # POST /questions.json
   def create
     @question = Question.new(question_params)
-
+    @question.question = params[:question][:question]
+    @question.grade = params[:question][:grade]
+    @question.subject_id = params[:question][:subject_id]
+    @question.picture = params[:question][:picture]
+    @question.nameless = params[:question][:nameless]
+    @question.solve = params[:question][:solve]
+    
     if params[:question][:picture].present?
       @question.picture = params[:question][:picture].original_filename
       logger.debug @question.picture
@@ -48,6 +54,13 @@ class QuestionsController < ApplicationController
   # PATCH/PUT /questions/1
   # PATCH/PUT /questions/1.json
   def update
+    @question = Question.find(params[:id])
+    @question.question = params[:question][:question]
+    @question.grade = params[:question][:grade]
+    @question.subject_id = params[:question][:subject_id]
+    @question.picture = params[:question][:picture]
+    @question.nameless = params[:question][:nameless]
+    @question.solve = params[:question][:solve]
 
     if params[:question][:picture].present?
       @question.picture = params[:question][:picture].original_filename
@@ -58,7 +71,7 @@ class QuestionsController < ApplicationController
     end
 
     respond_to do |format|
-      if @question.update(question_params)
+      if @question.save
         format.html { redirect_to @question, notice: 'Question was successfully updated.' }
         format.json { render :show, status: :ok, location: @question }
       else
@@ -73,7 +86,7 @@ class QuestionsController < ApplicationController
   def destroy
     @question.destroy
     respond_to do |format|
-      format.html { redirect_to questions_url, notice: 'Question was successfully destroyed.' }
+      format.html { redirect_to questions_url, notice: '質問を削除しました' }
       format.json { head :no_content }
     end
   end
