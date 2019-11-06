@@ -25,14 +25,16 @@ class NotesController < ApplicationController
   # POST /notes.json
   def create
     @note = Note.new(note_params)
+    @note.user_id = params[:note][:user_id]
+    @note.title = params[:note][:title]
+    @note.picture = params[:note][:picture]
+    @note.coverpicture = params[:note][:coverpicture]
+    @note.grade_id = params[:note][:grade_id]
+    @note.subject_id = params[:note][:subject_id]
+    @note.extra = params[:note][:extra]
+    @note.good = params[:note][:good]
+    @note.release = params[:note][:release]
 
-    if params[:note][:picture].present?
-      @note.picture = params[:note][:picture].original_filename
-logger.debug @note.picture
-      File.open("app/assets/images/notes/contents/#{@note.picture}", 'w+b') { |f|
-        f.write(params[:note][:picture].read)
-      }
-    end
 
     if params[:note][:coverpicture].present?
       @note.coverpicture = params[:note][:coverpicture].original_filename
@@ -41,6 +43,15 @@ logger.debug @note.coverpicture
         f.write(params[:note][:coverpicture].read)
       }
     end
+    
+    if params[:note][:picture].present?
+      @note.picture = params[:note][:picture].original_filename
+logger.debug @note.picture
+      File.open("app/assets/images/notes/contents/#{@note.picture}", 'w+b') { |f|
+        f.write(params[:note][:picture].read)
+      }
+    end
+
 
 
     respond_to do |format|
@@ -58,9 +69,38 @@ logger.debug @note.coverpicture
   # PATCH/PUT /notes/1
   # PATCH/PUT /notes/1.json
   def update
+    @note = Note.find(params[:id])
+    @note.user_id = params[:note][:user_id]
+    @note.title = params[:note][:title]
+    @note.picture = params[:note][:picture]
+    @note.coverpicture = params[:note][:coverpicture]
+    @note.grade_id = params[:note][:grade_id]
+    @note.subject_id = params[:note][:subject_id]
+    @note.extra = params[:note][:extra]
+    @note.good = params[:note][:good]
+    @note.release = params[:note][:release]
+
+
+    if params[:note][:coverpicture].present?
+      @note.coverpicture = params[:note][:coverpicture].original_filename
+logger.debug "ノート表紙画像" + @note.coverpicture
+      File.open("app/assets/images/notes/cover/#{@note.coverpicture}", 'w+b') { |f|
+        f.write(params[:note][:coverpicture].read)
+      }
+    end
+
+    if params[:note][:picture].present?
+      @note.picture = params[:note][:picture].original_filename
+logger.debug "ノート画像" + @note.picture
+      File.open("app/assets/images/notes/contents/#{@note.picture}", 'w+b') { |f|
+        f.write(params[:note][:picture].read)
+      }
+    end
+
+
     respond_to do |format|
-      if @note.update(note_params)
-        format.html { redirect_to @note, notice: 'Note was successfully updated.' }
+      if @note.save
+        format.html { redirect_to @note, notice: 'ノートを変更しました' }
         format.json { render :show, status: :ok, location: @note }
       else
         format.html { render :edit }
@@ -74,7 +114,7 @@ logger.debug @note.coverpicture
   def destroy
     @note.destroy
     respond_to do |format|
-      format.html { redirect_to notes_url, notice: 'Note was successfully destroyed.' }
+      format.html { redirect_to notes_url, notice: 'ノートを削除しました' }
       format.json { head :no_content }
     end
   end
