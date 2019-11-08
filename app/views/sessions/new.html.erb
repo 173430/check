@@ -1,5 +1,5 @@
-<h1>ログイン</h1>
-<div class="login-container">
+<h1 style="text-align:center;">ログイン</h1>
+<div class="login-container" style="text-align:center;">
   <div class="login_form">
     <%= form_for(:session, url: login_path) do |f| %>
       <% if flash[:error_messages] %>
@@ -12,12 +12,13 @@
         <% end %>
       <% end %>
       <div>
-        <%= f.label :email %>
-        <%= f.email_field :email, class: 'form-control' %>
-        <%= f.label :password %>
+        <%= f.label :ユーザＩＤ %>
+        <%= f.text_field :userid, class: 'form-control' %>
+        <%= f.label :パスワード %>
         <%= f.password_field :password, class: 'form-control' %>
+        <br>
+        <br>
         <%= f.submit "ログイン", class: "btn btn-primary" %>
     <% end %>
-        <p>まだユーザー登録がお済みでない方はこちら<%= link_to "新規登録", signup_path %></p>
   </div>
 </div>
