@@ -20,7 +20,7 @@
       <tr>
         <td><%= question.question %></td>
         <td><%= question.grade %></td>
-        <td><%= question.subject_id %></td>
+        <td><%= question.subject.subjectname %></td>
         <td width=200>
         <% if question.picture.present? %>
           <br>
@@ -43,7 +43,7 @@
         </td>
         <td><%= link_to '詳細', question %></td>
         <td><%= link_to '編集', edit_question_path(question) %></td>
-        <td><%= link_to '削除', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '削除', question, method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
       </tr>
     <% end %>
   </tbody>
