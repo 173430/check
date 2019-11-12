@@ -5,13 +5,15 @@ class QuestionsController < ApplicationController
   # GET /questions.json
   def index
     @search_params = question_search_params
+    logger.debug 'Question:Index'
+    logger.debug @search_params[:search]
     @questions = Question.search(@search_params)
   end
 
   #private
 
   def question_search_params
-    params.fetch(:search, {}).permit(:question)
+    params.fetch(:search, {}).permit(:search)
   end
 
   # GET /questions/1
