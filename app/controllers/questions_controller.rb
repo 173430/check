@@ -4,7 +4,14 @@ class QuestionsController < ApplicationController
   # GET /questions
   # GET /questions.json
   def index
-    @questions = Question.all
+    @search_params = question_search_params
+    @questions = Question.search(@search_params)
+  end
+
+  #private
+
+  def question_search_params
+    params.fetch(:search, {}).permit(:question)
   end
 
   # GET /questions/1

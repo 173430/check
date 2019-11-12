@@ -2,6 +2,21 @@
 
 <h1>Q&A</h1>
 
+<h3>検索</h3>
+<div class="search-form">
+<%= form_with(scope: :search, url: questions_path, method: :get, local: true) do |f| %>
+  <div class="field">
+  <%= f.label(:search, '検索内容') %>
+  <%= f.text_field :search, value: @search_params[:search] %>
+  </div>
+  <%= f.submit('検索') %>
+<% end %>
+
+<br>
+
+<%= link_to '質問する', new_question_path %>
+</div>
+
 <table>
   <thead>
     <tr>
@@ -51,9 +66,6 @@
 
 <br>
 
-<%= link_to '質問する', new_question_path %>
-<br>
-<br>
 <a href = 'http://localhost:3000/notes' >ノート </a>
 <br>
 <a href = 'http://localhost:3000/chat/show' >チャット </a>
