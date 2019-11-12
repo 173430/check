@@ -2,7 +2,7 @@
 module SessionsHelper
 
   def log_in(user)
-    session[:user_id] = user.user_id
+    session[:user_id] = user.userid
   end
 
   #現在ログインしているユーザを返す
