@@ -13,7 +13,7 @@ class QuestionsController < ApplicationController
   #private
 
   def question_search_params
-    params.fetch(:search, {}).permit(:search)
+    params.fetch(:search, {}).permit(:search, :solve)
   end
 
   # GET /questions/1
