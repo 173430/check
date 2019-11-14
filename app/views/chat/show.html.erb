@@ -1,13 +1,16 @@
 <h1>チャットルーム</h1>
 
-<ul id="messages">
-</ul>
-
-<form>
-     <label>投稿内容: <input type="text" data-behavior="chat_input">
-           <input type="submit" value="投稿する" onClick="postMessage()"/>
-     </label>
-</form>
+  <div id="target" class="box">
+    <ul id="messages">
+    </ul>
+  </div> 
+  <form>
+      <label>投稿内容: <input type="text" data-behavior="chat_input">
+            <input type="submit" value="投稿する" onClick="postMessage()"/>
+      </label>
+  </form>
 
 <p><a href = 'http://localhost:3000/notes'> ノート </a> </p>
 <a href = 'http://localhost:3000/questions'> Q&A </a>
+
+
