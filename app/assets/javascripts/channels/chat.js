@@ -8,7 +8,9 @@ App.chat = App.cable.subscriptions.create("ChatChannel", {
   },
 
   received: function(data) {
-    return $('#messages').append('<li>' + data['message'] + '</li>');
+    $('#messages').append('<li>' + data['message'] + '</li>');
+    $('#target').scrollTop($('#target').get(0).scrollHeight);
+    return
   },
 
   speak: function(message) {
@@ -17,40 +19,6 @@ App.chat = App.cable.subscriptions.create("ChatChannel", {
     });
   }
 });
-setTimeout(function() {
-  window.scroll(0,$(document).height());
-},0);
-
-// 実行
-document.getElementById( "fire" ).addEventListener( "click", function() {
-	try {
-		// 要素を取得
-		var pElement = document.getElementById( "target" ) ;
-
-		// scrollHeightを取得
-		var scrollHeight = pElement.scrollHeight ;
-
-		// 取得した結果を出力
-		document.getElementById( "output" ).textContent = scrollHeight ;
-
-		// コンソールで内容を出力
-		console.log( scrollHeight ) ;
-
-		// エラーを非表示
-		errorElement.className = "error none" ;
-
-	// エラー表示
-	} catch ( msg ) {
-		errorElement.className = "error" ;
-		errorElement.textContent = msg ;
-		console.error( msg ) ;
-
-	}
-} ) ;
-
-setTimeout(function() {
-  window.scroll(0,$(document).height());
-},0);
 
 
 /*
