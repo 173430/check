@@ -1,0 +1,30 @@
+<h1>プロフィール</h1>
+<br>
+<%= 'ユーザ名:' + @user.name %>
+<br>
+<br>
+<%= 'ID:' + @user.userid %>
+<br>
+<br>
+<% if @user.classroom_id.blank? %>
+所属:なし
+<% else %>
+<%= '所属:' + @user.classroom.grade.to_s + '年' + @user.classroom.classname %>
+<% end %>
+<br>
+<br>
+<%= 'コメント・自己紹介:' + @user.introduce %>
+<br>
+<br>
+<td>
+<% if @user.release == true %>
+公開情報:公開
+<% else %>
+公開情報:非公開
+<% end %>
+<p>ノート数</p>
+<p>総いいね数</p>
+<p>Ｑ&Ａ回答数</p>
+<p>ベストアンサー数</p>
+
+<td><%= link_to '編集', mypage_edit_path(@user) %></td>
