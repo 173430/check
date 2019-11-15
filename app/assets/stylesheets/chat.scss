@@ -2,13 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.output {
-	color: #333 ;
-	text-align: center ;
-	padding: 8px 0 ;
-	border: 1px solid #333 ;
-	min-height: 24px ;
-}
+
 
 .box {
 	width: 1050px ;
@@ -16,18 +10,7 @@
 	padding: 10px ;
 	border: 1px solid #000 ;
 	margin: 0 ;
-	overflow: scroll ;
+	overflow-y: scroll ;
 }
 
-img {
-	width: 200px ;
-	height: 150px ;
-	vertical-align: bottom ;
-}
-.error {
-	color: #f00 ;
-	padding: 8px 12px ;
-	border: 1px solid #333 ;
-	min-height: 24px ;
-}
 
