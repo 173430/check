@@ -7,17 +7,14 @@
    <div class="field">
      <%= f.label(:search, '検索内容') %>
      <%= f.text_field :search, value: @search_params[:search] %>
-     <%= f.submit('検索') %>
-   </div>
 
-   <div class="field">
-   <%= form_with(model: @question, local: true) do |form| %>
-    <%= form.radio_button :solve, :solve %>
-    <%= form.label :solve, "解決", {value: :solve, style: "display: inline-block;"} %>
-    <%= form.radio_button :solve, :resolve %>
-    <%= form.label :solve, "未解決", {value: :resolve, style: "display: inline-block;"} %>
-    <%= f.submit('検索') %>
-  <% end %>    
+     <%= f.radio_button(:solve, :true) %>
+     <%= f.label :solve, "解決", {value: :true, style: "display: inline-block;"} %>
+     <%= f.radio_button(:solve, :false) %>
+     <%= f.label :solve, "未解決", {value: :false, style: "display: inline-block;"} %>
+     <%= f.radio_button(:solve, :both) %>
+     <%= f.label :solve, "両方", {value: :both, style: "display: inline-block;"} %>
+     <%= f.submit('検索') %>
   </div>
 
   <% end %>

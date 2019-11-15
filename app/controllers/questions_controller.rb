@@ -5,9 +5,9 @@ class QuestionsController < ApplicationController
   # GET /questions.json
   def index
     @search_params = question_search_params
-    logger.debug 'Question:Index'
-    logger.debug @search_params[:search]
     @questions = Question.search(@search_params)
+    logger.debug 'インデックス'
+    logger.debug @search_params
   end
 
   #private
