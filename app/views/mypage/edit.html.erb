@@ -1,0 +1,33 @@
+ 
+<%= form_for(@user) do |f| %>
+ <div class="field">
+    <%= f.label :ユーザ名 %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :アイコン %>
+    <%= f.file_field :icon %>
+  </div>
+
+  <div class="field">
+    <%= f.label :自己紹介・コメント %>
+    <%= f.text_field :introduce %>
+  </div>
+  
+  <div class="field">
+  <%= f.label :パスワード %>
+  <%= f.password_field :password %>
+</div>
+
+
+  <div class="field">
+    <%= f.label :公開情報 %>
+    <%= f.check_box :release %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit '確定' %>
+  </div>
+
+<% end %>

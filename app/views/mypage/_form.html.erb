@@ -1,0 +1,30 @@
+
+
+    <div class="field">
+      <%= form.label :ユーザ名 %>
+      <%= form.number_field :name %>
+  
+    <div class="field">
+      <%= form.label :アイコン %>
+      <%= form.file_field :icon %>
+    </div>
+  
+    <div class="field">
+      <%= form.label :自己紹介・コメント %>
+      <%= form.text_field :introduce %>
+    </div>
+    
+    <div class="field">
+    <%= form.label :パスワード %>
+    <%= form.password_field :password %>
+  </div>
+  
+  
+    <div class="field">
+      <%= form.label :公開情報 %>
+      <%= form.check_box :release %>
+    </div>
+  
+    <div class="actions">
+      <%= form.submit '確定' %>
+    </div>

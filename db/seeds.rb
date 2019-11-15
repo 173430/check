@@ -6,11 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-#School.create(:schoolname => '島根県立出雲商業高校')
+School.create(:schoolname => '島根県立出雲商業高校')
 
-#Grade.create(:grade => '１年')
-#Grade.create(:grade => '２年')
-#Grade.create(:grade => '３年')
+Grade.create(:grade => '１年')
+Grade.create(:grade => '２年')
+Grade.create(:grade => '３年')
 
 Subject.create(:subjectname => '国語')
 Subject.create(:subjectname => '数学')
@@ -57,9 +57,9 @@ Subject.create(:subjectname => '日商簿記2級')
 Subject.create(:subjectname => 'ITパスポート試験')
 Subject.create(:subjectname => '基本情報技術者試験')
 
-#Classroom.create(:grade => 3, :classname => '４組', :department => '情報処理科')
-#Classroom.create(:grade => 1, :classname => '１２Ｒ', :department =>'普通科')
+Classroom.create(:grade => 3, :classname => '４組', :department => '情報処理科')
+Classroom.create(:grade => 1, :classname => '１２Ｒ', :department =>'普通科')
 
-#User.create(:classroom_id => 1, :userid => 's20171434', :name => '三島帆夏', :introduce => 'みしまほのかです', :password => '1111')
+User.create(:classroom_id => 1, :userid => 's20171434', :name => '三島帆夏', :introduce => 'みしまほのかです', :password => '1111')
 
-#Note.create(:user_id => 1, :title => '地震', :grade_id => 3, :subject_id => 2, :extra => 'プレートテクトニクスです', :good => 4)
+Note.create(:user_id => 1, :title => '地震', :grade_id => 3, :subject_id => 2, :extra => 'プレートテクトニクスです', :good => 4)

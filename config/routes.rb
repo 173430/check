@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get 'mypage/profile'
+  get 'mypage/edit'
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
