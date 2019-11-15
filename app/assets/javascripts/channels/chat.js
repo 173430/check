@@ -8,7 +8,9 @@ App.chat = App.cable.subscriptions.create("ChatChannel", {
   },
 
   received: function(data) {
-    return $('#messages').append('<li>' + data['message'] + '</li>');
+    $('#messages').append('<li>' + data['message'] + '</li>');
+    $('#target').scrollTop($('#target').get(0).scrollHeight);
+    return
   },
 
   speak: function(message) {
@@ -17,6 +19,7 @@ App.chat = App.cable.subscriptions.create("ChatChannel", {
     });
   }
 });
+
 
 /*
 $(document).on('keypress', '[data-behavior="chat_input"]', function(event) {
@@ -27,3 +30,5 @@ $(document).on('keypress', '[data-behavior="chat_input"]', function(event) {
   }
 });
 */
+
+

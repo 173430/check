@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :notes
   resources :answers
   resources :questions
+  get 'questions/index'
   resources :users
   resources :classrooms
   resources :subjects

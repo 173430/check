@@ -2,6 +2,21 @@
 
 <h1>Q&A</h1>
 
+<h3>検索</h3>
+<div class="search-form">
+<%= form_with(scope: :search, url: questions_path, method: :get, local: true) do |f| %>
+  <div class="field">
+  <%= f.label(:search, '検索内容') %>
+  <%= f.text_field :search, value: @search_params[:search] %>
+  </div>
+  <%= f.submit('検索') %>
+<% end %>
+
+<br>
+
+<%= link_to '質問する', new_question_path %>
+</div>
+
 <table>
   <thead>
     <tr>
@@ -20,7 +35,7 @@
       <tr>
         <td><%= question.question %></td>
         <td><%= question.grade %></td>
-        <td><%= question.subject_id %></td>
+        <td><%= question.subject.subjectname %></td>
         <td width=200>
         <% if question.picture.present? %>
           <br>
@@ -43,7 +58,7 @@
         </td>
         <td><%= link_to '詳細', question %></td>
         <td><%= link_to '編集', edit_question_path(question) %></td>
-        <td><%= link_to '削除', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '削除', question, method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -51,9 +66,6 @@
 
 <br>
 
-<%= link_to '質問する', new_question_path %>
-<br>
-<br>
 <a href = 'http://localhost:3000/notes' >ノート </a>
 <br>
 <a href = 'http://localhost:3000/chat/show' >チャット </a>

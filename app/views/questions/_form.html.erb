@@ -22,8 +22,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :教科 %>
-    <%= form.text_field :subject_id %>
+    <%= form.label :教科・検定 %>
+    <%= form.select :subject_id, Subject.all.map{|o| [o.subjectname, o.id]} %>
   </div>
 
   <div class="field">
