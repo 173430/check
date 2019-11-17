@@ -5,7 +5,7 @@ class QuestionsController < ApplicationController
   # GET /questions.json
   def index
     @search_params = question_search_params
-    @questions = Question.search(@search_params)
+    @questions = Question.search(@search_params).includes(:subject)
     logger.debug 'インデックス'
     logger.debug @search_params
   end
@@ -13,7 +13,7 @@ class QuestionsController < ApplicationController
   #private
 
   def question_search_params
-    params.fetch(:search, {}).permit(:search, :solve)
+    params.fetch(:search, {}).permit(:search, :solve, :subject_id)
   end
 
   # GET /questions/1
