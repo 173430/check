@@ -15,7 +15,7 @@ class MypageController < ApplicationController
 
   def update
 
-    @user = current_userS
+    @user = current_user
     
     if params[:user][:icon].present?
       @user.icon = params[:user][:icon].original_filename
