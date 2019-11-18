@@ -1,6 +1,7 @@
 class Question < ApplicationRecord
 
     belongs_to :subject
+    belongs_to :grade
 
     scope :search, -> (search_params) do
         return if search_params.blank?

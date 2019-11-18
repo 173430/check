@@ -17,6 +17,10 @@
      <%= f.label :solve, "両方", {value: :both, style: "display: inline-block;"} %>
      <br>
      <br>
+     <%= f.label :学年 %>
+     <%= f.select :grade_id, Grade.all.map{|o| [o.grade, o.id]}, :include_blank => '指定なし' %>
+     <br>
+     <br>
      <%= f.label :教科・検定 %>
      <%= f.select :subject_id, Subject.all.map{|o| [o.subjectname, o.id]}, :include_blank => '指定なし' %>
  

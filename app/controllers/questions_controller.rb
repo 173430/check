@@ -35,7 +35,7 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     @question.question = params[:question][:question]
-    @question.grade = params[:question][:grade]
+    @question.grade_id = params[:question][:grade_idS]
     @question.subject_id = params[:question][:subject_id]
     @question.picture = params[:question][:picture]
     @question.nameless = params[:question][:nameless]
@@ -65,7 +65,7 @@ class QuestionsController < ApplicationController
   def update
     @question = Question.find(params[:id])
     @question.question = params[:question][:question]
-    @question.grade = params[:question][:grade]
+    @question.grade_id = params[:question][:grade_id]
     @question.subject_id = params[:question][:subject_id]
     @question.picture = params[:question][:picture]
     @question.nameless = params[:question][:nameless]
