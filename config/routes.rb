@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :groupmembers
+  resources :groups
   get 'mypage/profile'
   get 'mypage/edit'
   get 'login' => 'sessions#new'
