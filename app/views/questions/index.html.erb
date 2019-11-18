@@ -2,20 +2,32 @@
 
 <h1>Q&A</h1>
 
-<h3>検索</h3>
 <div class="search-form">
-<%= form_with(scope: :search, url: questions_path, method: :get, local: true) do |f| %>
-  <div class="field">
-  <%= f.label(:search, '検索内容') %>
-  <%= f.text_field :search, value: @search_params[:search] %>
+ <%= form_with(scope: :search, url: questions_path, method: :get, local: true) do |f| %>
+   <div class="field">
+     <%= f.label(:search, '検索内容') %>
+     <%= f.text_field :search, value: @search_params[:search] %>
+     <br>
+     <br>
+     <%= f.radio_button(:solve, :true) %>
+     <%= f.label :solve, "解決", {value: :true, style: "display: inline-block;"} %>
+     <%= f.radio_button(:solve, :false) %>
+     <%= f.label :solve, "未解決", {value: :false, style: "display: inline-block;"} %>
+     <%= f.radio_button :solve, :both, checked: true %>
+     <%= f.label :solve, "両方", {value: :both, style: "display: inline-block;"} %>
+     <br>
+     <br>
+     <%= f.label :教科・検定 %>
+     <%= f.select :subject_id, Subject.all.map{|o| [o.subjectname, o.id]}, :include_blank => '指定なし' %>
+ 
+     <%= f.submit('検索') %>
   </div>
-  <%= f.submit('検索') %>
-<% end %>
 
-<br>
+  <% end %>
 
-<%= link_to '質問する', new_question_path %>
+ <%= link_to '質問する', new_question_path %>
 </div>
+<br>
 
 <table>
   <thead>
