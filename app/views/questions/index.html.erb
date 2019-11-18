@@ -9,6 +9,14 @@
      <%= f.text_field :search, value: @search_params[:search] %>
      <br>
      <br>
+     <%= f.label :学年 %>
+     <%= f.select :grade_id, Grade.all.map{|o| [o.grade, o.id]}, :include_blank => '指定なし' %>
+     <br>
+     <br>
+     <%= f.label :教科・検定 %>
+     <%= f.select :subject_id, Subject.all.map{|o| [o.subjectname, o.id]}, :include_blank => '指定なし' %>
+     <br>
+     <br>
      <%= f.radio_button(:solve, :true) %>
      <%= f.label :solve, "解決", {value: :true, style: "display: inline-block;"} %>
      <%= f.radio_button(:solve, :false) %>
@@ -17,13 +25,6 @@
      <%= f.label :solve, "両方", {value: :both, style: "display: inline-block;"} %>
      <br>
      <br>
-     <%= f.label :学年 %>
-     <%= f.select :grade_id, Grade.all.map{|o| [o.grade, o.id]}, :include_blank => '指定なし' %>
-     <br>
-     <br>
-     <%= f.label :教科・検定 %>
-     <%= f.select :subject_id, Subject.all.map{|o| [o.subjectname, o.id]}, :include_blank => '指定なし' %>
- 
      <%= f.submit('検索') %>
   </div>
 
@@ -50,7 +51,7 @@
     <% @questions.each do |question| %>
       <tr>
         <td><%= question.question %></td>
-        <td><%= question.grade %></td>
+        <td><%= question.grade.grade %></td>
         <td><%= question.subject.subjectname %></td>
         <td width=200>
         <% if question.picture.present? %>

@@ -5,7 +5,7 @@ class QuestionsController < ApplicationController
   # GET /questions.json
   def index
     @search_params = question_search_params
-    @questions = Question.search(@search_params).includes(:subject)
+    @questions = Question.search(@search_params).includes(:subject, :grade)
     logger.debug 'インデックス'
     logger.debug @search_params
   end
@@ -13,7 +13,7 @@ class QuestionsController < ApplicationController
   #private
 
   def question_search_params
-    params.fetch(:search, {}).permit(:search, :solve, :subject_id)
+    params.fetch(:search, {}).permit(:search, :solve, :subject_id, :grade_id)
   end
 
   # GET /questions/1
@@ -35,7 +35,7 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     @question.question = params[:question][:question]
-    @question.grade_id = params[:question][:grade_idS]
+    @question.grade_id = params[:question][:grade_id]
     @question.subject_id = params[:question][:subject_id]
     @question.picture = params[:question][:picture]
     @question.nameless = params[:question][:nameless]
