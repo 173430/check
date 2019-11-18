@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_28_012937) do
+ActiveRecord::Schema.define(version: 2019_11_18_011353) do
 
   create_table "answers", force: :cascade do |t|
     t.integer "user_id"
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 2019_10_28_012937) do
 
   create_table "questions", force: :cascade do |t|
     t.string "question"
-    t.integer "grade"
+    t.integer "grade_id"
     t.integer "subject_id"
     t.string "picture"
     t.boolean "nameless"
