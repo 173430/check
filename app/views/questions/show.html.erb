@@ -49,7 +49,7 @@
 <%= form_tag('/answers') do %>
 <%= hidden_field :answer, :question_id, :value => @question.id %>
   <p>
-  <%= text_field :comment, :comment %>
+  <%= text_field :answer, :answer %>
   <%= submit_tag "返信する" %>
   </p>
 <% end %>
@@ -58,7 +58,7 @@
   <p>
   <%= c.created_at %>
   <br>
-  <%= c.comment %>
+  <%= c.answer %>
   </p>
 <% end %>
 
