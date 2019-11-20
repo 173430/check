@@ -25,10 +25,24 @@ class GroupsController < ApplicationController
   # POST /groups.json
   def create
     @group = Group.new(group_params)
+    @group.name = params[:group][:name]
+    @group.icon = params[:group][:icon]
+    @group.user_id = params[:group][:user_id]
+    @group.release = params[:group][:release]
+
+    if params[:group][:icon].present?
+      @group.icon = params[:group][:icon].original_filename
+      logger.debug @group.icon
+      File.open("app/assets/images/groups/icons/#{@group.icon}",'w+b') { |f|
+        f.write(params[:group][:icon].read)
+      }
+    end
+
+
 
     respond_to do |format|
       if @group.save
-        format.html { redirect_to @group, notice: 'Group was successfully created.' }
+        format.html { redirect_to groups_path }
         format.json { render :show, status: :created, location: @group }
       else
         format.html { render :new }
@@ -40,6 +54,20 @@ class GroupsController < ApplicationController
   # PATCH/PUT /groups/1
   # PATCH/PUT /groups/1.json
   def update
+    @group = Group.find(params[:id])
+    @group.name = params[:group][:name]
+    @group.icon = params[:group][:icon]
+    @group.user_id = params[:group][:user_id]
+    @group.release = params[:group][:release]
+
+    if params[:group][:icon].present?
+      @group.icon = params[:group][:icon].original_filename
+      logger.debug "グループアイコン" + @group.icon
+      File.open("app/assets/images/groups/images/#{@group.icon}",'w+b') { |f|
+        f.write(params[:group][:icon].read)
+      }
+    end
+
     respond_to do |format|
       if @group.update(group_params)
         format.html { redirect_to @group, notice: 'Group was successfully updated.' }
