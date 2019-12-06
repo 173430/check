@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label :学年 %>
-    <%= form.number_field :grade %>
+    <%= form.select :grade_id, Grade.all.map{|o| [o.grade, o.id]} %>
   </div>
 
   <div class="field">

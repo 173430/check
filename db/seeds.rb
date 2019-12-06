@@ -63,3 +63,5 @@ Classroom.create(:grade => 1, :classname => '１２Ｒ', :department =>'普通�
 User.create(:classroom_id => 1, :userid => 's20171434', :name => '三島帆夏', :introduce => 'みしまほのかです', :password => '1111')
 
 Note.create(:user_id => 1, :title => '地震', :grade_id => 3, :subject_id => 2, :extra => 'プレートテクトニクスです', :good => 4)
+
+Group.create(:name => '森田')

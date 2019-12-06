@@ -25,5 +25,9 @@
   <%= @answer.best %>
 </p>
 
-<%= link_to 'Edit', edit_answer_path(@answer) %> |
-<%= link_to 'Back', answers_path %>
+<p>
+  <strong>Question:</strong>
+  <%= @answer.question_id %>
+</p>
+
+<!-- <%= link_to 'Edit', edit_answer_path(@answer) %> -->

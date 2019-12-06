@@ -11,32 +11,36 @@
     </div>
   <% end %>
 
+  <!--
   <div class="field">
     <%= form.label :user_id %>
     <%= form.number_field :user_id %>
   </div>
+  -->
 
   <div class="field">
-    <%= form.label :question_id %>
-    <%= form.number_field :question_id %>
+    <%= form.label :質問 %>
+    <%= form.select :question_id, Question.all.map{|o| [o.question, o.id]} %>
   </div>
 
   <div class="field">
-    <%= form.label :answer %>
+    <%= form.label :返信 %>
     <%= form.text_field :answer %>
   </div>
 
   <div class="field">
-    <%= form.label :picture %>
-    <%= form.text_field :picture %>
+    <%= form.label :画像 %>
+    <%= form.file_field :picture %>
   </div>
 
+  <!--
   <div class="field">
     <%= form.label :best %>
     <%= form.check_box :best %>
   </div>
+  -->
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit'返信する' %>
   </div>
 <% end %>
