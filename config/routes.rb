@@ -3,7 +3,18 @@ Rails.application.routes.draw do
   resources :groupmembers
   resources :groups
   get 'mypage/profile'
+  patch 'mypage/profile'
   get 'mypage/edit'
+  get 'mypage/passwordcheck'
+  post 'mypage/passwordequal'
+  patch 'mypage/passwordequal'
+
+  get 'mypage/passwordedit'
+  post 'mypage/editcheck'
+  patch 'mypage/editcheck'
+
+  get 'mypage/completed'
+
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'

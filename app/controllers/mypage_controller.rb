@@ -13,26 +13,45 @@ class MypageController < ApplicationController
     
   end
 
-  def update
+  def passwordcheck
 
     @user = current_user
-    
-    if params[:user][:icon].present?
-      @user.icon = params[:user][:icon].original_filename
-      File.open("app/assets/images/icons/private/#{@user.icon}", 'w+b') { |f|
-        f.write(params[:user][:icon].read)
-      }
-    end
+  
+  end
+
+  def passwordequal
+    @user = current_user
+    flash[:alart] = nil
 
     respond_to do |format|
-      if @user.save
-        format.html { redirect_to @user, notice: 'ノートを変更しました' }
-        #format.json { render :show, status: :ok, location: @user }
+      if current_user.password == params[:user][:password]
+        format.html { redirect_to mypage_passwordedit_path }
+        #format.json { render :index, status: :created, location: @note }
       else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        flash[:alart] = 'パスワードが違います'
+        format.html { render :passwordcheck }
+        #format.json { render json: @note.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def passwordedit
+    @user = current_user
+  end
+
+  def editcheck
+    @user = current_user
+    respond_to do |format|
+      if params[:user][:password] == params[:user][:subpassword]
+        format.html { redirect_to action: 'completed' }
+      else
+        format.html { render :passwordedit }
+      end
+    end
+  end
+
+  def completed
+    @user = current_user
   end
 
 end
