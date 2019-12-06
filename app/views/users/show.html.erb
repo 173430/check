@@ -1,39 +1,43 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Classroom:</strong>
+  <strong>クラス:</strong>
   <%= @user.classroom_id %>
 </p>
 
 <p>
-  <strong>Userid:</strong>
+  <strong>ユーザID:</strong>
   <%= @user.userid %>
 </p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>名前:</strong>
   <%= @user.name %>
 </p>
 
 <p>
-  <strong>Icon:</strong>
+  <strong>アイコン:</strong>
   <%= @user.icon %>
 </p>
 
 <p>
-  <strong>Introduce:</strong>
+  <strong>コメント・自己紹介:</strong>
   <%= @user.introduce %>
 </p>
 
 <p>
-  <strong>Password:</strong>
-  <%= @user.password %>
+  <strong>パスワード:</strong>
+  ーーーーーーーーーー
 </p>
 
 <p>
-  <strong>Release:</strong>
-  <%= @user.release %>
+  <strong>公開情報:</strong>
+  <% if @user.release == true %>
+    公開
+  <% else %>
+    非公開
+  <% end %>
 </p>
 
-<%= link_to 'Edit', mypage_edit_path(@user) %>
-<%= link_to 'Back', mypage_profile_path %>
+<%= link_to 'プロフィールを編集', mypage_edit_path(@user) %>
+<%= link_to 'プロフィール画面へ', mypage_profile_path %>
