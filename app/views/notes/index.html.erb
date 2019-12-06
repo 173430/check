@@ -39,7 +39,8 @@
         <td><%= note.subject_id %></td>
         <td><%= note.extra %></td>
         <td><%= note.good %></td>
-        <td><%= note.release %></td>     
+        <td><%= note.release %></td> 
+        <td><%= link_to '詳細', note %></td>  
         <td><%= link_to '編集', edit_note_path(note) %></td>
         <td><%= link_to '削除', note, method: :delete, data: { confirm: '本当に削除しますか？' } %></td>
       </tr>
