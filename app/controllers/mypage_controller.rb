@@ -45,6 +45,7 @@ class MypageController < ApplicationController
       if params[:user][:password] == params[:user][:subpassword]
         format.html { redirect_to action: 'completed' }
       else
+        flash[:alart] = 'パスワードが違います'
         format.html { render :passwordedit }
       end
     end
