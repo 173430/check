@@ -5,6 +5,7 @@
 <div class="search-form">
  <%= form_with(scope: :search, url: questions_path, method: :get, local: true) do |f| %>
    <div class="field">
+   <div class="box2">
      <%= f.label(:search, '検索内容') %>
      <%= f.text_field :search, value: @search_params[:search] %>
      <br>
@@ -25,12 +26,15 @@
      <%= f.label :solve, "両方", {value: :both, style: "display: inline-block;"} %>
      <br>
      <br>
-     <%= f.submit('検索') %>
-  </div>
+<form>
+  <p><input class="decorated-btn click-down" type="submit" value="検索する"></p>
+</form>
+   </div>
+</div>
 
   <% end %>
 
- <%= link_to '質問する', new_question_path %>
+    <a href="http://localhost:3000/questions/new" class="btn-border">質問する</a>
 </div>
 <br>
 
