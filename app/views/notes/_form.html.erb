@@ -11,14 +11,6 @@
     </div>
   <% end %>
 
-  <!--
-  <div class="field">
-    <%= form.label :投稿者 %>
-    <%= form.number_field :user_id %>
-  
-  </div>
-  -->
-
   <div class="field">
     <%= form.label :タイトル %>
     <%= form.text_field :title %>
@@ -37,12 +29,12 @@
 
   <div class="field">
     <%= form.label :学年 %>
-    <%= form.number_field :grade_id %>
+    <%= form.select :grade_id, Grade.all.map{|o| [o.grade, o.id]} %>
   </div>
 
   <div class="field">
-    <%= form.label :教科 %>
-    <%= form.number_field :subject_id %>
+    <%= form.label :教科・検定 %>
+    <%= form.select :subject_id, Subject.all.map{|o| [o.subjectname, o.id]} %>
   </div>
 
   <div class="field">
