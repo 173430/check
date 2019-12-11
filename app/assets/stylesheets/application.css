@@ -75,7 +75,7 @@ a.header:hover{
     font-weight: bold;
     padding: 0.25em 0.5em;
     text-decoration: none;
-    color: #87cefa;
+    color: #00bcd4;
     background: #ECECEC;
     transition: .4s;
   }
@@ -85,20 +85,53 @@ a.header:hover{
     color: white;
   }
 /*質問するボタン*/
-.btn-flat-double-border {
+.container {
+    font-family: "Yu Gothic", YuGothic, Verdana, 'Hiragino Kaku Gothic ProN','Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, sans-serif;
+    text-align: center;
+    padding-top: 40px;
+  }
+  .btn-open {
     display: inline-block;
-    padding: 0.5em 1em;
+    width: 180px;
+    height:50px;
+    text-align: center;
+    background-color: #87cefa;
+    font-size: 16px;
+    line-height: 52px;
+    color: #FFF;
     text-decoration: none;
-    color: #ffa500;
-    border: double 4px #ffa500;
-    border-radius: 3px;
-    transition: .4s;
+    font-weight: bold;
+    border: 2px solid #87cefa;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
   }
-  .btn-flat-double-border:hover {
-    color: black;
-    background-color: #ffa500;
+  .btn-open:after{
+    width: 100%;
+    height: 0;
+    content:"";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background : #FFF;
+    opacity: 0;
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    transition: .2s;
+    z-index: -1;
   }
-
+  .btn-open:hover{
+    color: #87cefa;
+    background-color: #87cefa;
+  }
+  .btn-open:hover:after{
+    height: 240%;
+    opacity: 1;
+  }
+  .btn-open:active:after{
+    height: 340%;
+    opacity: 1;
+  }  
+  
 /*詳細、編集、削除ボタン*/
   .btn-flat-border {
     display: inline-block;
