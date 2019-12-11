@@ -69,35 +69,34 @@ a.header:hover{
 }
 
 /*検索するボタン*/
-  .decorated-btn {
-    background-color: #87cefa;
-    font-size: 12px;
-    border-radius: 5px;
-    transition: 0.3s;
+.btn-flat-simple {
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+    padding: 0.25em 0.5em;
+    text-decoration: none;
+    color: #87cefa;
+    background: #ECECEC;
+    transition: .4s;
   }
   
-  .click-down:active {
-    transform: translateY(2px);
-    border-bottom: none;
+  .btn-flat-simple:hover {
+    background: #87cefa;
+    color: white;
   }
-  
-  .decorated-btn:hover {
-    background-color: #00bfff;
-  }
-
 /*質問するボタン*/
 .btn-flat-double-border {
     display: inline-block;
     padding: 0.5em 1em;
     text-decoration: none;
-    color: #c6ffc6;
-    border: double 4px #c6ffc6;
+    color: #ffa500;
+    border: double 4px #ffa500;
     border-radius: 3px;
     transition: .4s;
   }
   .btn-flat-double-border:hover {
     color: black;
-    background-color: #c6ffc6;
+    background-color: #ffa500;
   }
 
 /*詳細、編集、削除ボタン*/
