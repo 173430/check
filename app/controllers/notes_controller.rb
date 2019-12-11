@@ -25,7 +25,7 @@ class NotesController < ApplicationController
   # POST /notes.json
   def create
     @note = Note.new(note_params)
-    @note.user_id = params[:note][:user_id]
+    @note.user = current_user
     @note.title = params[:note][:title]
     @note.picture = params[:note][:picture]
     @note.coverpicture = params[:note][:coverpicture]
@@ -70,12 +70,9 @@ logger.debug @note.picture
   # PATCH/PUT /notes/1.json
   def update
     @note = Note.find(params[:id])
-    @note.user_id = params[:note][:user_id]
     @note.title = params[:note][:title]
     @note.picture = params[:note][:picture]
     @note.coverpicture = params[:note][:coverpicture]
-    @note.grade_id = params[:note][:grade_id]
-    @note.subject_id = params[:note][:subject_id]
     @note.extra = params[:note][:extra]
     @note.good = params[:note][:good]
     @note.release = params[:note][:release]
