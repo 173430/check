@@ -21,7 +21,7 @@
   <tbody>
     <% @notes.each do |note| %>
       <tr>
-        <td><%= note.user_id %></td>
+      <td><%= note.user.name %></td>
         <td><%= note.title %></td>
         <td width=120>
         <% if note.coverpicture.present? %>
@@ -35,8 +35,8 @@
         <% end %>
         </td>
         </td>
-        <td><%= note.grade_id %></td>
-        <td><%= note.subject_id %></td>
+        <td><%= note.grade.grade %></td>
+        <td><%= note.subject.subjectname %></td>
         <td><%= note.extra %></td>
         <td><%= note.good %></td>
         <td><%= note.release %></td> 
