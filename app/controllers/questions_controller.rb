@@ -40,7 +40,8 @@ class QuestionsController < ApplicationController
     @question.picture = params[:question][:picture]
     @question.nameless = params[:question][:nameless]
     @question.solve = params[:question][:solve]
-    
+    @question.user_id = current_user.id
+
     if params[:question][:picture].present?
       @question.picture = params[:question][:picture].original_filename
       logger.debug @question.picture

@@ -51,10 +51,8 @@
 <p><b>返信</b></p>
 <%= form_tag('/answers') do %>
 <%= hidden_field :answer, :question_id, :value => @question.id %>
-  <p>
   <%= text_field :answer, :answer %>
-  <%= submit_tag "返信する" %>
-  </p>
+  <form style="display: inline"><p><input class="btn-flat-simple" type="submit" value="返信する"></p></form>
 <% end %>
 
 <% @question.answers.each do |c| %>

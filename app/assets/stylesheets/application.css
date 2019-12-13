@@ -53,6 +53,7 @@ a.header:hover{
     border-top: 3px #87cefa solid;
   }
 
+/*Q&A*/
 /*検索フォームの囲み*/
   .box2 {
     padding: 0.5em 1em;
@@ -131,13 +132,13 @@ a.header:hover{
     height: 340%;
     opacity: 1;
   }  
-  
+
 /*詳細、編集、削除ボタン*/
   .btn-flat-border {
     display: inline-block;
     padding: 0.3em 1em;
     text-decoration: none;
-    color: #87cefa;
+    color: gray;
     border: solid 2px #87cefa;
     border-radius: 3px;
     transition: .4s;

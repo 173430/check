@@ -3,7 +3,8 @@ class Question < ApplicationRecord
     belongs_to :subject
     belongs_to :grade
     has_many :answers
-
+    belongs_to :user
+    
     scope :search, -> (search_params) do
         return if search_params.blank?
 
