@@ -12,7 +12,10 @@
 
 <p>
   <strong>アイコン:</strong>
-  <%= @group.icon %>
+  <% if @group.icon.present? %>
+    <br>
+    <%= image_tag(asset_path('groups/icons/' + @group.icon), :width => '100%') %>
+  <% end %>
 </p>
 
 <p>
@@ -22,7 +25,13 @@
 
 <p>
   <strong>公開設定:</strong>
-  <%= @group.release %>
+  <td>
+  <% if @group.release == true %>
+    公開
+  <% else %>
+    非公開
+  <% end %>
+</td>
 </p>
 
 <%= link_to '編集', edit_group_path(@group), class: "btn-flat-border" %> |

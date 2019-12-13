@@ -32,7 +32,7 @@
   <% if @question.nameless == true %>
     匿名
   <% else %>
-    名前
+    <%= current_user.name %>
   <% end %>
 </td>
 </p>
