@@ -2,50 +2,62 @@
 
 <p id="notice"><%= notice %></p>
 
+<%= link_to '編集', edit_note_path(@note), class: "btn-flat-border" %> |
+<%= link_to 'ノート一覧', notes_path, class: "btn-flat-border" %>
+
 <p>
-  <strong>User:</strong>
-  <%= @note.user_id %>
+  <strong>投稿者:</strong>
+  <%= current_user.name %>
 </p>
 
 <p>
-  <strong>Title:</strong>
+  <strong>タイトル:</strong>
   <%= @note.title %>
 </p>
 
 <p>
-  <strong>Picture:</strong>
-  <%= @note.picture %>
+  <strong>ノート:</strong>
+  <% if @note.picture.present? %>
+    <br>
+    <%= image_tag(asset_path('notes/contents/' + @note.picture), :width => '30%') %>
+  <% end %>
 </p>
 
 <p>
-  <strong>Coverpicture:</strong>
-  <%= @note.coverpicture %>
+  <strong>表紙:</strong>
+  <% if @note.coverpicture.present? %>
+    <br>
+    <%= image_tag(asset_path('notes/cover/' + @note.coverpicture), :width => '30%') %>
+  <% end %>
 </p>
 
 <p>
-  <strong>Grade:</strong>
-  <%= @note.grade_id %>
+  <strong>学年:</strong>
+  <%= @note.grade.grade %>
 </p>
 
 <p>
-  <strong>Subject:</strong>
-  <%= @note.subject_id %>
+  <strong>教科:</strong>
+  <%= @note.subject.subjectname %>
 </p>
 
 <p>
-  <strong>Extra:</strong>
+  <strong>補足:</strong>
   <%= @note.extra %>
 </p>
 
 <p>
-  <strong>Good:</strong>
+  <strong>いいね:</strong>
   <%= @note.good %>
 </p>
 
 <p>
-  <strong>Release:</strong>
-  <%= @note.release %>
+  <strong>公開:</strong>
+  <td>
+  <% if @note.release == true %>
+    公開
+  <% else %>
+    非公開
+  <% end %>
+</td>
 </p>
-
-<%= link_to 'Edit', edit_note_path(@note) %> |
-<%= link_to 'Back', notes_path %>

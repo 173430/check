@@ -22,12 +22,12 @@
   <strong>画像:</strong>
   <% if @question.picture.present? %>
     <br>
-    <%= image_tag(asset_path('q&a/questions/' + @question.picture), :width => '100%') %>
+    <%= image_tag(asset_path('q&a/questions/' + @question.picture), :width => '30%') %>
   <% end %>
 </p>
 
 <p>
-  <strong>匿名:</strong>
+  <strong>質問者:</strong>
   <td>
   <% if @question.nameless == true %>
     匿名
@@ -51,7 +51,7 @@
 <p><b>返信</b></p>
 <%= form_tag('/answers') do %>
 <%= hidden_field :answer, :question_id, :value => @question.id %>
-  <%= text_field :answer, :answer %>
+  <%= text_field :answer, :answer, :size=>"30", placeholder: "返信内容を入力してください" %>
   <form style="display: inline"><p><input class="btn-flat-simple" type="submit" value="返信する"></p></form>
 <% end %>
 

@@ -89,7 +89,6 @@ a.header:hover{
 .container {
     font-family: "Yu Gothic", YuGothic, Verdana, 'Hiragino Kaku Gothic ProN','Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, sans-serif;
     text-align: center;
-    padding-top: 40px;
   }
   .btn-open {
     display: inline-block;
@@ -177,3 +176,45 @@ a.cp_btn:before {
 a.cp_btn:hover:before {
 	left:98%;
 }
+
+/*見出し*/
+.sample08{
+  font-size: 1.2em;/* 文字の大きさ */
+  font-weight: bold;/* 文字の太さ */
+  color: #fff;/* 文字の色 */
+  background: #87cefa;/* 背景色 */
+  border-radius: 8px;/* 四隅の丸み */
+  -webkit-border-radius: 8px;/* 四隅の丸みと同じ数字に */
+  -moz-border-radius: 8px;/* 四隅の丸みと同じ数字に */
+  position: relative;
+  margin: 0 0 1.5em;
+  padding: 0.4em 0.4em 0.4em 2em;
+}
+.sample08:before,
+.sample08:after {
+   content: "";
+  position: absolute;
+  display: block;
+}
+.sample08:before{
+  top: -0.1em;
+  left: 0.5em;
+  width: 20px;
+  height: 23px;
+  padding: 5px 0 0 0;
+  background: #58baf7;/* リボン部分の色 */
+  text-align: center;
+}
+.sample08:after{
+  top: 0.8em;
+  left: 0.5em;
+  width: 0;
+  height: 0;
+  border: 10px solid;
+  border-color: transparent #58baf7;/* リボンの切りっぱなし部分の色 */
+}
+
+/*マーカー*/
+  table th{
+    color: gray;
+    }

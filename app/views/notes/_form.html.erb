@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= form.label :タイトル %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, :size=>"30", placeholder: "タイトルを入力してください" %>
   </div>
 
   <div class="field">
@@ -39,7 +39,7 @@
 
   <div class="field">
     <%= form.label :補足 %>
-    <%= form.text_field :extra %>
+    <%= form.text_field :extra, :size=>"30", placeholder: "補足内容を入力してください" %>
   </div>
 
   <!--
@@ -55,6 +55,8 @@
   </div>
 
   <div class="actions">
-    <%= form.submit '作成する' %>
+  <form>
+  <p><input class="btn-flat-simple" type="submit" value="ノートを作る"></p>
+  </form>
   </div>
 <% end %>

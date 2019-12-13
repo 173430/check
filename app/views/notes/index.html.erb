@@ -1,8 +1,14 @@
 <p id="notice"><%= notice %></p>
 
+<div class="sample08">
 <h1>ノート一覧</h1>
+</div>
 
-<table border="1" style="border-collapse: collapse">
+<div class="container">
+<a href="http://localhost:3000/notes/new" class="btn-open">ノートを作る</a>
+</div>
+
+<table style="border-collapse: collapse">
   <thead>
     <tr>
       <th>投稿者</th>
@@ -39,10 +45,16 @@
         <td><%= note.subject.subjectname %></td>
         <td><%= note.extra %></td>
         <td><%= note.good %></td>
-        <td><%= note.release %></td> 
-        <td><%= link_to '詳細', note %></td>  
-        <td><%= link_to '編集', edit_note_path(note) %></td>
-        <td><%= link_to '削除', note, method: :delete, data: { confirm: '本当に削除しますか？' } %></td>
+        <td>
+        <% if note.release == true %>
+          公開
+        <% else %>
+          非公開
+        <% end %>
+        </td>
+        <td><%= link_to '詳細', note, class: "btn-flat-border" %></td>  
+        <td><%= link_to '編集', edit_note_path(note), class: "btn-flat-border" %></td>
+        <td><%= link_to '削除', note, method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn-flat-border" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -50,5 +62,3 @@
 
 
 <br>
-
-<%= link_to '新しいノート', new_note_path %>
