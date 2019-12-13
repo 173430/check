@@ -23,11 +23,17 @@
           <%= image_tag(asset_path('groups/icons/' + group.icon), :width => '100%') %>
         <% end %>
         <td><%= group.user_id %></td>
-        <td><%= group.release %></td>
-        <td><%= link_to 'Show', group %></td>
-        <td><%= link_to 'Edit', edit_group_path(group) %></td>
-        <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><h1><%= link_to '入室',chat_show_path %></h1></td>
+        <td>
+          <% if group.release == true %>
+            公開
+          <% else %>
+            非公開
+          <% end %>
+        </td>
+        <td><%= link_to '詳細', group, class: "btn-flat-border" %></td>
+        <td><%= link_to '編集', edit_group_path(group), class: "btn-flat-border" %></td>
+        <td><%= link_to '削除', group, method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn-flat-border" %></td>
+        <td><%= link_to '入室する',chat_show_path, class: "cp_btn" %></td>
         </tr>
     <% end %>
   </tbody>
@@ -35,4 +41,4 @@
 
 <br>
 
-<%= link_to '新規作成', new_group_path %>
+<%= link_to '新規作成', new_group_path, class: "btn-open" %>
