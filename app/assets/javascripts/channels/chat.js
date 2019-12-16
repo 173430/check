@@ -13,9 +13,10 @@ App.chat = App.cable.subscriptions.create("ChatChannel", {
     return
   },
 
-  speak: function(message) {
+  speak: function(message,user_id) {
     return this.perform('speak',{
-      message: message
+      message: message,
+      user_id: user_id
     });
   }
 });
