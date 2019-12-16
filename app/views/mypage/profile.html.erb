@@ -2,22 +2,24 @@
 <h1>プロフィール</h1>
 </div>
 
-<h4><p><span class="mypage">ユーザ名:</span><%= + @user.name %></p>
+<h4>
+<p><span class="mypage">ユーザ名&nbsp;</span><%= + @user.name %></p>
 
-<p><span class="mypage">ID:</span><%= + @user.userid %></p>
+<p><span class="mypage">ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><%= + @user.userid %></p>
 
 <% if @user.classroom_id.blank? %>
-<p><span class="mypage">所属:</span>なし</p>
+<p><span class="mypage">所属&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>なし</p>
 <% else %>
-<p><span class="mypage">所属:</span><%= + @user.classroom.grade.to_s + '年' + @user.classroom.classname %></p>
+<p><span class="mypage">所属&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><%= + @user.classroom.grade.to_s + '年' + @user.classroom.classname %></p>
 <% end %>
 
-<p><span class="mypage">コメント・自己紹介:</span><%= + @user.introduce %></p>
+<p><span class="mypage">コメント・自己紹介</span></p>
+<p>&nbsp;<%= + @user.introduce %></p>
 
 <% if @user.release == true %>
-<p><span class="mypage">公開情報:</span>公開</p>
+<p><span class="mypage">公開情報&nbsp;</span>公開</p>
 <% else %>
-<p><span class="mypage">公開情報:</span>非公開</p>
+<p><span class="mypage">公開情報&nbsp;</span>非公開</p>
 <% end %>
 
 <td><%= link_to 'パスワードを変更する', mypage_passwordcheck_path(@user), class: "btn-flat-border" %></td>
