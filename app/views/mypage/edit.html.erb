@@ -2,7 +2,7 @@
 <%= form_for(@user) do |f| %>
  <div class="field">
     <%= f.label :ユーザ名 %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :size=>"35", placeholder: "ユーザー名を入力してください" %>
   </div>
 
   <div class="field">
@@ -12,7 +12,7 @@
 
   <div class="field">
     <%= f.label :自己紹介・コメント %>
-    <%= f.text_field :introduce %>
+    <%= f.text_field :introduce, :size=>"35", placeholder: "自己紹介・コメントを入力してください" %>
   </div>
 
   <div class="field">
@@ -22,7 +22,9 @@
   </div>
 
   <div class="actions">
-    <%= f.submit '確定' %>
+  <form>
+  <p><input class="btn-flat-simple" type="submit" value="更新する"></p>
+  </form>
   </div>
 
 <% end %>

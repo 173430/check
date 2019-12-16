@@ -218,3 +218,8 @@ a.cp_btn:hover:before {
   table th{
     color: gray;
     }
+
+/*マイページ*/
+.mypage {
+  color: dodgerblue
+}
