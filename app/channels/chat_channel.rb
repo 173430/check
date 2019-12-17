@@ -9,8 +9,8 @@ class ChatChannel < ApplicationCable::Channel
   end
 
   def speak(data)
-    message = Message.create!(body: data['message'])
+    message = Message.create!(body: data['message'], user_id: data['current_user.id'])
     ActionCable.server.broadcast 'chat_channel', message: data['message']
-    Message.create! message: data['message']
+    user_id = document.getElementById("user_id") ;
   end
 end
