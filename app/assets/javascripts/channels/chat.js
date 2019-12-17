@@ -9,6 +9,7 @@ App.chat = App.cable.subscriptions.create("ChatChannel", {
 
   received: function(data) {
     $('#messages').append('<li>' + data['message'] + '</li>');
+    $('#userid').append(data['userid']);
     $('#target').scrollTop($('#target').get(0).scrollHeight);
     return
   },
