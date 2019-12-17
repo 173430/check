@@ -18,7 +18,8 @@
 
 function postMessage(){
     event.preventDefault();
-    var element = document.querySelector('input[type]');
+    var element = document.querySelector('input[type="text"]');
+    var userid = document.getElementById('input[type="hidden"]');
     App.chat.speak(element.value);
     element.value = '';
   }
