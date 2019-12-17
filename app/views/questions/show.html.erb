@@ -4,6 +4,17 @@
 <%= link_to '質問一覧', questions_path, class: 'btn-flat-border' %>
 
 <p>
+  <strong>質問者:</strong>
+  <td>
+  <% if @question.nameless == true %>
+    匿名
+  <% else %>
+    <%= current_user.name %>
+  <% end %>
+</td>
+</p>
+
+<p>
   <strong>質問:</strong>
   <%= @question.question %>
 </p>
@@ -24,17 +35,6 @@
     <br>
     <%= image_tag(asset_path('q&a/questions/' + @question.picture), :width => '30%') %>
   <% end %>
-</p>
-
-<p>
-  <strong>質問者:</strong>
-  <td>
-  <% if @question.nameless == true %>
-    匿名
-  <% else %>
-    <%= current_user.name %>
-  <% end %>
-</td>
 </p>
 
 <p>
