@@ -72,3 +72,4 @@ class UsersController < ApplicationController
       params.require(:user).permit(:classroom_id, :userid, :name, :icon, :introduce, :password, :release)
     end
 end
+
