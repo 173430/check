@@ -60,7 +60,7 @@ a.header:hover{
     margin: 2em 0;
     font-weight: bold;
     color: gray;/*文字色*/
-    background: #FFF;
+    background: azure;
     border: solid 3px #87cefa;/*線*/
     border-radius: 10px;/*角の丸み*/
 }
@@ -217,7 +217,7 @@ a.cp_btn:hover:before {
 
 /*テーブル*/
   table th{
-    color: gray;
+    color: #58baf7;
     }
 
   table td{
@@ -236,3 +236,6 @@ a.cp_btn:hover:before {
 }
 
 /*背景*/
+body {
+  background-color: azure;
+}
