@@ -1,17 +1,25 @@
 <p id="notice"><%= notice %></p>
 
+<div class="sample08">
+<h1>グループ内容</h1>
+</div>
+
+<%= link_to '編集', edit_group_path(@group), class: "btn-flat-border" %> |
+<%= link_to 'グループ一覧', groups_path, class: "btn-flat-border" %> 
+
+<h4>
 <p>
-  <strong>ID:</strong>
+<span class="text"><strong>ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></span>
   <%= @group.id %>
 </p>
 
 <p>
-  <strong>グループ名:</strong>
+<span class="text"><strong>グループ名&nbsp;</strong></span>
   <%= @group.name %>
 </p>
 
 <p>
-  <strong>アイコン:</strong>
+<span class="text"><strong>アイコン&nbsp;&nbsp;&nbsp;</strong></span>
   <% if @group.icon.present? %>
     <br>
     <%= image_tag(asset_path('groups/icons/' + @group.icon), :width => '30%') %>
@@ -19,12 +27,12 @@
 </p>
 
 <p>
-  <strong>管理者名:</strong>
+<span class="text"><strong>管理者名&nbsp;&nbsp;&nbsp;</strong></span>
   <%= @group.user_id %>
 </p>
 
 <p>
-  <strong>公開設定:</strong>
+<span class="text"><strong>公開設定&nbsp;&nbsp;&nbsp;</strong></span>
   <td>
   <% if @group.release == true %>
     公開
@@ -33,6 +41,4 @@
   <% end %>
 </td>
 </p>
-
-<%= link_to '編集', edit_group_path(@group), class: "btn-flat-border" %> |
-<%= link_to 'グループ一覧', groups_path, class: "btn-flat-border" %> 
+</h4>

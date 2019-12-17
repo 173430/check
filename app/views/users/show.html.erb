@@ -1,41 +1,46 @@
 <p id="notice"><%= notice %></p>
+
+<div class="sample08">
+<h1>ユーザー情報</h1>
+</div>
+
 <%= link_to 'プロフィールを編集', mypage_edit_path(@user), class: "btn-flat-border" %>
 <%= link_to 'プロフィール画面へ', mypage_profile_path, class: "btn-flat-border" %>
 
 <h4>
 <p>
-  <span class="mypage"><strong>クラス:</strong></span>
+  <span class="text"><strong>クラス:</strong></span>
   <%= @user.classroom_id %>
 </p>
 
 <p>
-  <span class="mypage"><strong>ユーザID:</strong></span>
+  <span class="text"><strong>ユーザID:</strong></span>
   <%= @user.userid %>
 </p>
 
 <p>
-  <span class="mypage"><strong>名前:</strong></span>
+  <span class="text"><strong>名前:</strong></span>
   <%= @user.name %>
 </p>
 
 <p>
-  <span class="mypage"><strong>アイコン:</strong></span>
+  <span class="text"><strong>アイコン:</strong></span>
   <%= @user.icon %>
 </p>
 
 <p>
-  <span class="mypage"><strong>コメント・自己紹介:</strong></span>
+  <span class="text"><strong>コメント・自己紹介:</strong></span>
   <br>
   <%= @user.introduce %>
 </p>
 
 <p>
-  <span class="mypage"><strong>パスワード:</strong></span>
+  <span class="text"><strong>パスワード:</strong></span>
   ーーーーーーーーーー
 </p>
 
 <p>
-  <span class="mypage"><strong>公開情報:</strong></span>
+  <span class="text"><strong>公開情報:</strong></span>
   <% if @user.release == true %>
     公開
   <% else %>
