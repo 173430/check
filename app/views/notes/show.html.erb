@@ -1,22 +1,25 @@
+<div class="sample08">
 <h1>ノート内容</h1>
+</div>
 
 <p id="notice"><%= notice %></p>
 
 <%= link_to '編集', edit_note_path(@note), class: "btn-flat-border" %> |
 <%= link_to 'ノート一覧', notes_path, class: "btn-flat-border" %>
 
+<h4>
 <p>
-  <strong>投稿者:</strong>
-  <%= current_user.name %>
+<span class="text"><strong>投稿者&nbsp;&nbsp;&nbsp;</strong></span>
+<span class="form-text"><%= current_user.name %></span>
 </p>
 
 <p>
-  <strong>タイトル:</strong>
-  <%= @note.title %>
+<span class="text"><strong>タイトル&nbsp;</strong></span>
+<span class="form-text"><%= @note.title %></span>
 </p>
 
 <p>
-  <strong>ノート:</strong>
+<span class="text"><strong>ノート&nbsp;&nbsp;&nbsp;</strong></span>
   <% if @note.picture.present? %>
     <br>
     <%= image_tag(asset_path('notes/contents/' + @note.picture), :width => '30%') %>
@@ -24,7 +27,7 @@
 </p>
 
 <p>
-  <strong>表紙:</strong>
+<span class="text"><strong>表紙&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></span>
   <% if @note.coverpicture.present? %>
     <br>
     <%= image_tag(asset_path('notes/cover/' + @note.coverpicture), :width => '30%') %>
@@ -32,32 +35,36 @@
 </p>
 
 <p>
-  <strong>学年:</strong>
-  <%= @note.grade.grade %>
+<span class="text"><strong>学年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></span>
+<span class="form-text"><%= @note.grade.grade %></span>
 </p>
 
 <p>
-  <strong>教科:</strong>
-  <%= @note.subject.subjectname %>
+<span class="text"><strong>教科&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></span>
+<span class="form-text"><%= @note.subject.subjectname %></span>
 </p>
 
 <p>
-  <strong>補足:</strong>
-  <%= @note.extra %>
+<span class="text"><strong>補足&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></span>
+<span class="form-text"><%= @note.extra %></span>
 </p>
 
 <p>
-  <strong>いいね:</strong>
+<span class="text"><strong>いいね&nbsp;&nbsp;&nbsp;</strong></span>
   <%= @note.good %>
 </p>
 
 <p>
-  <strong>公開:</strong>
+<span class="text"><strong>公開&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></span>
   <td>
+  <span class="form-text">
   <% if @note.release == true %>
     公開
   <% else %>
     非公開
   <% end %>
+  </span>
 </td>
 </p>
+</h4>
+

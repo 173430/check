@@ -1,36 +1,43 @@
 <p id="notice"><%= notice %></p>
 
+<div class="sample08">
+<h1>質問内容</h1>
+</div>
+
 <%= link_to '編集', edit_question_path(@question), class: 'btn-flat-border' %> |
 <%= link_to '質問一覧', questions_path, class: 'btn-flat-border' %>
 
+<h4>
 <p>
-  <strong>質問者:</strong>
+  <span class="text"><strong>質問者&nbsp;&nbsp;</strong></span>
   <td>
+  <span class="form-text">
   <% if @question.nameless == true %>
     匿名
   <% else %>
     <%= current_user.name %>
   <% end %>
+  </span>
 </td>
 </p>
 
 <p>
-  <strong>質問:</strong>
-  <%= @question.question %>
+  <span class="text"><strong>質問&nbsp;&nbsp;&nbsp;&nbsp;</strong></span>
+  <span class="form-text"><%= @question.question %></span>
 </p>
 
 <p>
-  <strong>学年:</strong>
-  <%= @question.grade.grade %>
+  <span class="text"><strong>学年&nbsp;&nbsp;&nbsp;&nbsp;</strong></span>
+  <span class="form-text"><%= @question.grade.grade %></span>
 </p>
 
 <p>
-  <strong>教科:</strong>
-  <%= @question.subject.subjectname %>
+  <span class="text"><strong>教科&nbsp;&nbsp;&nbsp;&nbsp;</strong></span>
+  <span class="form-text"><%= @question.subject.subjectname %></span>
 </p>
 
 <p>
-  <strong>画像:</strong>
+  <span class="text"><strong>画像&nbsp;&nbsp;&nbsp;&nbsp;</strong></span>
   <% if @question.picture.present? %>
     <br>
     <%= image_tag(asset_path('q&a/questions/' + @question.picture), :width => '30%') %>
@@ -38,17 +45,19 @@
 </p>
 
 <p>
-  <strong>解決:</strong>
+  <span class="text"><strong>解決/未解決&nbsp;&nbsp;&nbsp;&nbsp;</strong></span>
   <td>
+  <span class="form-text">
   <% if @question.solve == true %>
     解決
   <% else %>
     未解決
   <% end %>
+  </span>
 </td>
 </p>
 
-<p><b>返信</b></p>
+<p><span class="text"><b>返信</b></span></p>
 <%= form_tag('/answers') do %>
 <%= hidden_field :answer, :question_id, :value => @question.id %>
   <%= text_field :answer, :answer, :size=>"30", placeholder: "返信内容を入力してください" %>
@@ -57,8 +66,11 @@
 
 <% @question.answers.each do |c| %>
   <p>
-  <%= c.created_at %>
+  <span class="form-text">
+  <%= c.created_at.strftime("%Y-%m-%d %H:%M") %>
   <br>
   <%= c.answer %>
+  </span>
   </p>
 <% end %>
+</h4>
