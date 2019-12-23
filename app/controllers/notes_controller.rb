@@ -25,31 +25,41 @@ class NotesController < ApplicationController
   # POST /notes.json
   def create
     @note = Note.new(note_params)
-    @note.user = current_user
-    @note.title = params[:note][:title]
-    @note.picture = params[:note][:picture]
-    @note.coverpicture = params[:note][:coverpicture]
+    @note.user_id = current_user.id
+    #@note.title = params[:note][:title]
+    #@note.picture = params[:note][:picture]
+    #@note.coverpicture = params[:note][:coverpicture]
     @note.grade_id = params[:note][:grade_id]
     @note.subject_id = params[:note][:subject_id]
-    @note.extra = params[:note][:extra]
-    @note.good = params[:note][:good]
-    @note.release = params[:note][:release]
+    #@note.extra = params[:note][:extra]
+    #@note.good = params[:note][:good]
+    #@note.release = params[:note][:release]
 
+    @note.save
 
     if params[:note][:coverpicture].present?
       @note.coverpicture = params[:note][:coverpicture].original_filename
-logger.debug @note.coverpicture
       File.open("app/assets/images/notes/cover/#{@note.coverpicture}", 'w+b') { |f|
         f.write(params[:note][:coverpicture].read)
       }
     end
     
     if params[:note][:picture].present?
-      @note.picture = params[:note][:picture].original_filename
-logger.debug @note.picture
-      File.open("app/assets/images/notes/contents/#{@note.picture}", 'w+b') { |f|
-        f.write(params[:note][:picture].read)
-      }
+
+      Dir.mkdir("app/assets/images/notes/contents/" + @note.id.to_s)
+
+      if params[:note][:picture][1].nil?
+        @note.picture = params[:note][:picture][0].original_filename
+        File.open("app/assets/images/notes/contents/#{@note.id.to_s}/#{@note.picture}", 'w+b') { |f|
+        f.write(params[:note][:picture][0].read)
+        }
+      else
+        params[:note][:picture].each do |picture|
+          File.open("app/assets/images/notes/contents/#{@note.id.to_s}/#{picture.original_filename}", 'w+b') { |f|
+          f.write(picture.read)
+          }
+        end
+      end
     end
 
 
@@ -124,6 +134,6 @@ logger.debug "ノート画像" + @note.picture
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def note_params
-      params.require(:note).permit(:user_id, :title, :picture, :coverpicture, :grade_id, :subject_id, :extra, :good, :release)
+      params.require(:note).permit( :user_id, :title, {picture: []}, :coverpicture, :grade_id, :subject_id, :extra, :good, :release)
     end
 end

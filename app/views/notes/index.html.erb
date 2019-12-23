@@ -29,18 +29,11 @@
       <tr>
       <td><%= note.user.name %></td>
         <td><%= note.title %></td>
-        <td width=120>
-        <% if note.coverpicture.present? %>
-          <br>
-          <%= image_tag(asset_path('notes/cover/' + note.coverpicture), :width => '100%') %>
-        <% end %>
-        <td width=120>
-        <% if note.picture.present? %>
-          <br>
-          <%= image_tag(asset_path('notes/contents/' + note.picture), :width => '100%') %>
-        <% end %>
-        </td>
-        </td>
+        
+
+
+     
+
         <td><%= note.grade.grade %></td>
         <td><%= note.subject.subjectname %></td>
         <td><%= note.extra %></td>
