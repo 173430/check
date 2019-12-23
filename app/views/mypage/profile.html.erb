@@ -2,8 +2,11 @@
 <h1>プロフィール</h1>
 </div>
 
+
 <h4>
-<p><span class="text">ユーザ名&nbsp;</span><span class="form-text"><%= + @user.name %></span></p>
+<p>
+<span class="form-text"><%= + @user.name %></span>
+</p>
 
 <p><span class="text">ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="form-text"><%= + @user.userid %></span></p>
 
@@ -22,7 +25,7 @@
 <p><span class="text">公開情報&nbsp;</span><span class="form-text">非公開</span></p>
 <% end %>
 
-<td><%= link_to 'パスワードを変更する', mypage_passwordcheck_path(@user), class: "btn-flat-border" %></td>
+<td><%= link_to 'パスワードを変更する',mypage_passwordcheck_path(@user), class: "btn-flat-border" %></td>
 <br>
 <br>
 <span class="form-text">秘密の質問</span>
@@ -40,5 +43,5 @@
 <p><span class="form-text">Ｑ&Ａ回答数</span></p>
 <p><span class="form-text">ベストアンサー数</span></p>
 
-<td><%= link_to 'プロフィール編集', mypage_edit_path(@user), class: "btn-flat-border" %></td>
+<td><%= link_to 'プロフィール編集', edit_user_path(@user.id), class: "btn-flat-border" %></td>
 </h5>

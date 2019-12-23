@@ -2,6 +2,8 @@
 <h1>プロフィールを編集する</h1>
 </div>
 
+<h4>
+<div class="form-text">
 <%= form_for(@user) do |f| %>
  <div class="field">
     <%= f.label :ユーザ名 %>
@@ -26,8 +28,11 @@
 
   <div class="actions">
   <form>
-  <p><input class="btn-flat-simple" type="submit" value="更新する"></p>
+  <p><input class="btn-flat-simple" type="submit" value="更新する" formaction="http://localhost:3000/mypage/profile"></p>
   </form>
   </div>
+</h4>
+</div>
 
 <% end %>
+
