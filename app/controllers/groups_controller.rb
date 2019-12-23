@@ -29,7 +29,6 @@ class GroupsController < ApplicationController
     @group.icon = params[:group][:icon]
     @group.user_id = params[:group][:user_id]
     @group.release = params[:group][:release]
-    @group.user_id = current_user.id
 
     if params[:group][:icon].present?
       @group.icon = params[:group][:icon].original_filename

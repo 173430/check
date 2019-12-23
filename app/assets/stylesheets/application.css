@@ -132,12 +132,13 @@ a.header:hover{
     opacity: 1;
   }  
 
-/*詳細、編集、削除ボタン(question,group)*/
+/*詳細、編集、削除ボタン*/
   .btn-flat-border {
     display: inline-block;
     padding: 0.3em 1em;
     text-decoration: none;
     color: gray;
+    font-weight: bold;
     border: solid 2px #87cefa;
     border-radius: 3px;
     transition: .4s;
@@ -156,7 +157,7 @@ a.cp_btn {
 	padding: 0.8em;
 	text-align: center;
 	text-decoration: none;
-	color: #fff;
+	color: white;
 	background: #58baf7;
 	border:solid 1px #fff;
 	overflow: hidden;
@@ -218,3 +219,20 @@ a.cp_btn:hover:before {
   table th{
     color: gray;
     }
+
+  table td{
+    font-weight: bold;
+    color: gray;
+  }
+
+/*マイページ*/
+.text {
+  color: dodgerblue
+}
+
+/*フォームの文字色*/
+.form-text{
+  color: gray
+}
+
+/*背景*/

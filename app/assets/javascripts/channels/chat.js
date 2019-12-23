@@ -9,13 +9,15 @@ App.chat = App.cable.subscriptions.create("ChatChannel", {
 
   received: function(data) {
     $('#messages').append('<li>' + data['message'] + '</li>');
+    $('#userid').append(data['userid']);
     $('#target').scrollTop($('#target').get(0).scrollHeight);
     return
   },
 
-  speak: function(message) {
+  speak: function(message,user_id) {
     return this.perform('speak',{
-      message: message
+      message: message,
+      user_id: user_id
     });
   }
 });

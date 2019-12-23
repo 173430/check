@@ -4,14 +4,11 @@
     <ul id="messages">
     </ul>
   </div> 
-  <form>
+  <form>  
       <label>投稿内容: <input type="text" data-behavior="chat_input">
+            <input type="hidden" value="text" id="@user.userid" >
             <input type="submit" value="投稿する" onClick="postMessage()"/>
       </label>
-  </form>
+      </form>
 
 <a href = 'http://localhost:3000/groups'>グループ一覧へ</a>
-
-
-
-

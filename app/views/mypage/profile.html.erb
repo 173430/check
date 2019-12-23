@@ -1,35 +1,31 @@
+<div class="sample08">
 <h1>プロフィール</h1>
-<br>
-<%= 'ユーザ名:' + @user.name %>
-<br>
-<br>
-<%= 'ID:' + @user.userid %>
-<br>
-<br>
+</div>
+
+<h4>
+<p><span class="text">ユーザ名&nbsp;</span><span class="form-text"><%= + @user.name %></span></p>
+
+<p><span class="text">ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="form-text"><%= + @user.userid %></span></p>
+
 <% if @user.classroom_id.blank? %>
-所属:なし
+<p><span class="text">所属&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="form-text">なし</span></p>
 <% else %>
-<%= '所属:' + @user.classroom.grade.to_s + '年' + @user.classroom.classname %>
+<p><span class="text">所属&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="form-text"><%= + @user.classroom.grade.to_s + '年' + @user.classroom.classname %></span></p>
 <% end %>
-<br>
-<br>
-<%= 'コメント・自己紹介:' + @user.introduce %>
-<br>
-<br>
-<td>
+
+<p><span class="text">コメント・自己紹介</span></p>
+<p>&nbsp;<span class="form-text"><%= + @user.introduce %></span></p>
+
 <% if @user.release == true %>
-公開情報:公開
+<p><span class="text">公開情報&nbsp;</span><span class="form-text">公開</span></p>
 <% else %>
-公開情報:非公開
+<p><span class="text">公開情報&nbsp;</span><span class="form-text">非公開</span></p>
 <% end %>
 
+<td><%= link_to 'パスワードを変更する', mypage_passwordcheck_path(@user), class: "btn-flat-border" %></td>
 <br>
 <br>
-
-<td><%= link_to 'パスワードを変更する', mypage_passwordcheck_path(@user) %></td>
-<br>
-<br>
-秘密の質問
+<span class="form-text">秘密の質問</span>
 
 <br>
 <br>
@@ -37,15 +33,12 @@
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
+</h4>
 
-<p>ノート数</p>
-<p>総いいね数</p>
-<p>Ｑ&Ａ回答数</p>
-<p>ベストアンサー数</p>
+<h5><p><span class="form-text">ノート数</span></p>
+<p><span class="form-text">総いいね数</span></p>
+<p><span class="form-text">Ｑ&Ａ回答数</span></p>
+<p><span class="form-text">ベストアンサー数</span></p>
 
-<td><%= link_to '編集', mypage_edit_path(@user) %></td>
+<td><%= link_to 'プロフィール編集', mypage_edit_path(@user), class: "btn-flat-border" %></td>
+</h5>

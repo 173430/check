@@ -45,12 +45,12 @@
 <table>
   <thead>
     <tr>
+      <th>質問者</th>
       <th>質問</th>
       <th>学年</th>
       <th>教科</th>
       <th>画像</th>
-      <th>質問者</th>
-      <th>解決</th>
+      <th>解決/未解決</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -58,6 +58,13 @@
   <tbody>
     <% @questions.each do |question| %>
       <tr>
+        <td>
+          <% if question.nameless == true %>
+            匿名
+          <% else %>
+            <%= question.user.name %>
+          <% end %>
+        </td>
         <td><%= question.question %></td>
         <td><%= question.grade.grade %></td>
         <td><%= question.subject.subjectname %></td>
@@ -66,13 +73,6 @@
           <br>
           <%= image_tag(asset_path('q&a/questions/' + question.picture), :width => '100%') %>
         <% end %>
-        </td>
-        <td>
-          <% if question.nameless == true %>
-            匿名
-          <% else %>
-            <%= question.user.name %>
-          <% end %>
         </td>
         <td>
           <% if question.solve == true %>
