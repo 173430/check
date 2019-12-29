@@ -40,6 +40,13 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    if params[:user][:icon].present?
+      @user.icon = params[:user][:icon].original_filename
+      logger.debug @user.icon
+      File.open("app/assets/images/mypage/icons/#{@user.icon}", 'w+b') { |f|
+        f.write(params[:user][:icon].read)
+    }
+    end
 
     respond_to do |format|
       if @user.update(user_params)
