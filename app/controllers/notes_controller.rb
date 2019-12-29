@@ -38,8 +38,11 @@ class NotesController < ApplicationController
     @note.save
 
     if params[:note][:coverpicture].present?
+
+      Dir.mkdir("app/assets/images/notes/cover/" + @note.id.to_s)
+
       @note.coverpicture = params[:note][:coverpicture].original_filename
-      File.open("app/assets/images/notes/cover/#{@note.coverpicture}", 'w+b') { |f|
+      File.open("app/assets/images/notes/cover/#{@note.id.to_s}/#{@note.coverpicture}", 'w+b') { |f|
         f.write(params[:note][:coverpicture].read)
       }
     end

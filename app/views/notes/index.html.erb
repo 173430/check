@@ -11,6 +11,7 @@
 <table style="border-collapse: collapse">
   <thead>
     <tr>
+
       <th>投稿者</th>
       <th>タイトル</th>
       <th width=120>表紙</th>
@@ -24,16 +25,24 @@
     </tr>
   </thead>
 
+
   <tbody>
     <% @notes.each do |note| %>
       <tr>
       <td><%= note.user.name %></td>
         <td><%= note.title %></td>
         
+        <td>
+        <% if note.coverpicture.present? %>
+          <br>
+          <%= image_tag(asset_path('notes/cover/' + note.id.to_s + '/' + note.coverpicture), :width => '100%') %>
+        <% end %>
+        </td>
 
-
-     
-
+        <td>
+          <%= note.picture.class %>
+        </td>
+      
         <td><%= note.grade.grade %></td>
         <td><%= note.subject.subjectname %></td>
         <td><%= note.extra %></td>
@@ -52,6 +61,3 @@
     <% end %>
   </tbody>
 </table>
-
-
-<br>
