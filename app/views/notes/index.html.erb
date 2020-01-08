@@ -15,7 +15,6 @@
       <th>投稿者</th>
       <th>タイトル</th>
       <th width=120>表紙</th>
-      <th width=120>ノート</th>
       <th>学年</th>
       <th>教科</th>
       <th>補足</th>
@@ -37,10 +36,6 @@
           <br>
           <%= image_tag(asset_path('notes/cover/' + note.id.to_s + '/' + note.coverpicture), :width => '100%') %>
         <% end %>
-        </td>
-
-        <td>
-          <%= note.picture.class %>
         </td>
       
         <td><%= note.grade.grade %></td>

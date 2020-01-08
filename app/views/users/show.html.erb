@@ -23,10 +23,12 @@
   <%= @user.name %>
 </p>
 
+<% if @user.icon.present? %>
 <p>
   <span class="text"><strong>アイコン:</strong></span>
   <%= image_tag(asset_path('mypage/icons/' + @user.icon)) %>
 </p>
+<% end %>
 
 <p>
   <span class="text"><strong>コメント・自己紹介:</strong></span>
