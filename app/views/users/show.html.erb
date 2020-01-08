@@ -10,41 +10,45 @@
 <h4>
 <p>
   <span class="text"><strong>クラス:</strong></span>
-  <%= @user.classroom_id %>
+  <span class="form-text"><%= @user.classroom_id %></span>
 </p>
 
 <p>
   <span class="text"><strong>ユーザID:</strong></span>
-  <%= @user.userid %>
+  <span class="form-text"><%= @user.userid %></span>
 </p>
 
 <p>
   <span class="text"><strong>名前:</strong></span>
-  <%= @user.name %>
+  <span class="form-text"><%= @user.name %></span>
 </p>
 
+<% if false %>
 <p>
   <span class="text"><strong>アイコン:</strong></span>
   <%= image_tag(asset_path('mypage/icons/' + @user.icon)) %>
 </p>
+<% end %>
 
 <p>
   <span class="text"><strong>コメント・自己紹介:</strong></span>
   <br>
-  <%= @user.introduce %>
+  <span class="form-text"><%= @user.introduce %></span>
 </p>
 
+<% if false %>
 <p>
   <span class="text"><strong>パスワード:</strong></span>
   ーーーーーーーーーー
 </p>
+<% end %>
 
 <p>
   <span class="text"><strong>公開情報:</strong></span>
   <% if @user.release == true %>
-    公開
+    <span class="form-text">公開</span>
   <% else %>
-    非公開
+    <span class="form-text">非公開</span>
   <% end %>
 </p>
 </h4>
