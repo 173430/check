@@ -23,7 +23,7 @@
   <span class="form-text"><%= @user.name %></span>
 </p>
 
-<% if false %>
+<% if @user.icon.present? %>
 <p>
   <span class="text"><strong>アイコン:</strong></span>
   <%= image_tag(asset_path('mypage/icons/' + @user.icon)) %>
