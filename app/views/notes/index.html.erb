@@ -8,51 +8,35 @@
 <a href="http://localhost:3000/notes/new" class="btn-open">ノートを作る</a>
 </div>
 
-<table style="border-collapse: collapse">
-  <thead>
-    <tr>
-
-      <th>投稿者</th>
-      <th>タイトル</th>
-      <th width=120>表紙</th>
-      <th>学年</th>
-      <th>教科</th>
-      <th>補足</th>
-      <th>いいね</th>
-      <th>公開情報</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
+<table style="border-collapse: collapse" border="1" width="640" height="480">
 
   <tbody>
     <% @notes.each do |note| %>
-      <tr>
-      <td><%= note.user.name %></td>
-        <td><%= note.title %></td>
-        
-        <td>
-        <% if note.coverpicture.present? %>
-          <br>
-          <%= image_tag(asset_path('notes/cover/' + note.id.to_s + '/' + note.coverpicture), :width => '100%') %>
-        <% end %>
-        </td>
       
-        <td><%= note.grade.grade %></td>
-        <td><%= note.subject.subjectname %></td>
-        <td><%= note.extra %></td>
-        <td><%= note.good %></td>
-        <td>
-        <% if note.release == true %>
-          公開
-        <% else %>
-          非公開
-        <% end %>
-        </td>
-        <td><%= link_to '詳細', note, class: "btn-flat-border" %></td>  
-        <td><%= link_to '編集', edit_note_path(note), class: "btn-flat-border" %></td>
-        <td><%= link_to '削除', note, method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn-flat-border" %></td>
-      </tr>
+      <td>
+        <table>
+          <tr>
+          <td>
+            <% if note.coverpicture.present? %>
+            <br>
+            <div class="img_wrap">
+            <a href="#"><%= image_tag(asset_path('notes/cover/' + note.id.to_s + '/' + note.coverpicture), :width => '100%') %></a>
+            </div>
+            <% end %>
+          </td>
+          </tr>
+          <tr>
+          <td>
+            <%= note.title %><br>
+            <%= note.user.name %><br>
+            <%= note.grade.grade %><br>
+            <%= note.subject.subjectname %><br>
+            <%= note.good %>
+          </td>
+          </tr>
+        </table>
+      </td>
+
     <% end %>
   </tbody>
 </table>

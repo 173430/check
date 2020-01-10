@@ -10,17 +10,17 @@
 <h4>
 <p>
 <span class="text"><strong>ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></span>
-  <%= @group.id %>
+<span class="form-text"><%= @group.id %></span>
 </p>
 
 <p>
 <span class="text"><strong>グループ名&nbsp;</strong></span>
-  <%= @group.name %>
+<span class="form-text"><%= @group.name %></span>
 </p>
 
 <p>
 <span class="text"><strong>アイコン&nbsp;&nbsp;&nbsp;</strong></span>
-  <% if @group.icon.present? %>
+<span class="form-text"><% if @group.icon.present? %></span>
     <br>
     <%= image_tag(asset_path('groups/icons/' + @group.icon), :width => '30%') %>
   <% end %>
@@ -28,16 +28,16 @@
 
 <p>
 <span class="text"><strong>管理者名&nbsp;&nbsp;&nbsp;</strong></span>
-  <%= @group.user_id %>
+<span class="form-text"><%= @group.user_id %></span>
 </p>
 
 <p>
 <span class="text"><strong>公開設定&nbsp;&nbsp;&nbsp;</strong></span>
   <td>
   <% if @group.release == true %>
-    公開
+    <span class="form-text">公開</span>
   <% else %>
-    非公開
+    <span class="form-text">非公開</span>
   <% end %>
 </td>
 </p>
