@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Notepictures</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Note</th>
+      <th>Picture</th>
+      <th>Disp order</th>
+      <th>Cover</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @notepictures.each do |notepicture| %>
+      <tr>
+        <td><%= notepicture.note_id %></td>
+        <td><%= notepicture.picture %></td>
+        <td><%= notepicture.disp_order %></td>
+        <td><%= notepicture.cover %></td>
+        <td><%= link_to 'Show', notepicture %></td>
+        <td><%= link_to 'Edit', edit_notepicture_path(notepicture) %></td>
+        <td><%= link_to 'Destroy', notepicture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Notepicture', new_notepicture_path %>
