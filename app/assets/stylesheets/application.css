@@ -243,6 +243,10 @@ a.cp_btn:hover:before {
     -webkit-overflow-scrolling: touch;
   }
 
+  li {
+    list-style-type: none;
+  }
+
 /*マイページ*/
 .text {
   color: #58baf7;
