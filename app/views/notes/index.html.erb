@@ -8,7 +8,7 @@
 <a href="http://localhost:3000/notes/new" class="btn-open">ノートを作る</a>
 </div>
 
-<table style="border-collapse: collapse" border="1" width="640" height="480">
+<table style="border-collapse: collapse" width="640" height="480">
 
   <tbody>
     <% @notes.each do |note| %>
@@ -35,6 +35,7 @@
           </li>
           </ul>
         </body>
+        <td><%= link_to '詳細', note, class: "btn-flat-border" %></td> 
       </td>
 
     <% end %>
