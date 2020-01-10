@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  note_id: 1
+  picture: MyString
+  disp_order: 1
+
+two:
+  note_id: 1
+  picture: MyString
+  disp_order: 1

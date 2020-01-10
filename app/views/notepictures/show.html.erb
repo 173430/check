@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @notepicture.note_id %>
+</p>
+
+<p>
+  <strong>Picture:</strong>
+  <%= @notepicture.picture %>
+</p>
+
+<p>
+  <strong>Disp order:</strong>
+  <%= @notepicture.disp_order %>
+</p>
+
+<%= link_to 'Edit', edit_notepicture_path(@notepicture) %> |
+<%= link_to 'Back', notepictures_path %>

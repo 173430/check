@@ -25,6 +25,7 @@ class NotesController < ApplicationController
   # POST /notes.json
   def create
     @note = Note.new(note_params)
+
     @note.user_id = current_user.id
     #@note.title = params[:note][:title]
     #@note.picture = params[:note][:picture]
@@ -37,31 +38,44 @@ class NotesController < ApplicationController
 
     @note.save
 
+    notepicture = Notepicture.new
+    notepicture.disp_order = 1
+
+
+    Dir.mkdir("app/assets/images/notes/cover/" + @note.id.to_s)
+
     if params[:note][:coverpicture].present?
-
-      Dir.mkdir("app/assets/images/notes/cover/" + @note.id.to_s)
-
-      @note.coverpicture = params[:note][:coverpicture].original_filename
-      File.open("app/assets/images/notes/cover/#{@note.id.to_s}/#{@note.coverpicture}", 'w+b') { |f|
-        f.write(params[:note][:coverpicture].read)
-      }
+    @note.coverpicture = params[:note][:coverpicture].original_filename
+    File.open("app/assets/images/notes/cover/#{@note.id.to_s}/#{@note.coverpicture}", 'w+b') { |f|
+      f.write(params[:note][:coverpicture].read)
+    }
+    notepicture.cover = params[:note][:coverpicture].original_filename
     end
+
     
-    if params[:note][:picture].present?
+    Dir.mkdir("app/assets/images/notes/contents/" + @note.id.to_s)
 
-      Dir.mkdir("app/assets/images/notes/contents/" + @note.id.to_s)
-
-      if params[:note][:picture][1].nil?
-        @note.picture = params[:note][:picture][0].original_filename
-        File.open("app/assets/images/notes/contents/#{@note.id.to_s}/#{@note.picture}", 'w+b') { |f|
-        f.write(params[:note][:picture][0].read)
+    if params[:note][:picture].instance_of?(Array)
+      params[:note][:picture].each do |picture|
+        File.open("app/assets/images/notes/contents/#{@note.id.to_s}/#{picture.original_filename}", 'w+b') { |f|
+        f.write(picture.read)
         }
-      else
-        params[:note][:picture].each do |picture|
-          File.open("app/assets/images/notes/contents/#{@note.id.to_s}/#{picture.original_filename}", 'w+b') { |f|
-          f.write(picture.read)
-          }
-        end
+        notepicture.note_id = @note.id
+        notepicture.picture = picture.original_filename
+        notepicture.save
+        soe = notepicture.disp_order
+
+        notepicture = Notepicture.new
+        notepicture.disp_order = soe
+    
+        notepicture.disp_order = notepicture.disp_order + 1
+      end
+    else
+      if @note.picture.present?
+        @note.picture = params[:note][:picture].original_filename
+        File.open("app/assets/images/notes/contents/#{@note.id.to_s}/#{@note.picture}", 'w+b') { |f|
+        f.write(params[:note][:picture].read)
+        }
       end
     end  
 

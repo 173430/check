@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_16_014238) do
+ActiveRecord::Schema.define(version: 2020_01_10_051242) do
 
   create_table "answers", force: :cascade do |t|
     t.integer "user_id"
@@ -67,6 +67,15 @@ ActiveRecord::Schema.define(version: 2019_12_16_014238) do
     t.string "picture"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "notepictures", force: :cascade do |t|
+    t.integer "note_id"
+    t.string "picture"
+    t.integer "disp_order"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "cover"
   end
 
   create_table "notes", force: :cascade do |t|
