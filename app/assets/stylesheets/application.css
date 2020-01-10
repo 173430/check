@@ -216,6 +216,11 @@ a.cp_btn:hover:before {
 }
 
 /*テーブル*/
+  table {
+    border-collapse: collapse;
+    width: 100%; 
+  }
+
   table th{
     color: #58baf7;
     }
@@ -223,6 +228,19 @@ a.cp_btn:hover:before {
   table td{
     font-weight: bold;
     color: gray;
+  }
+
+  table tr{
+    max-width: 100%; 
+    height: auto;
+  }
+
+  .alt-table-responsive {
+    max-width: 100%; 
+    overflow-y: hidden;
+    overflow-x: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    -webkit-overflow-scrolling: touch;
   }
 
 /*マイページ*/
@@ -238,4 +256,23 @@ a.cp_btn:hover:before {
 /*背景*/
 body {
   background-color: azure;
+}
+
+/*画像ホバー*/
+.img_wrap{
+  border: none;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.img_wrap img{
+  width: 100%;
+  cursor: pointer;
+  transition-duration: 0.3s;
+}
+.img_wrap:hover img{
+  opacity: 0.6;
+  transition-duration: 0.3s;
+  border: none;
 }
