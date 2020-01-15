@@ -8,36 +8,41 @@
 <a href="http://localhost:3000/notes/new" class="btn-open">ノートを作る</a>
 </div>
 
-<table style="border-collapse: collapse" width="640" height="480">
+<table style="border-collapse: collapse">
 
+<tr>
+<td>
+  <table>
   <tbody>
+    <tr>
     <% @notes.each do |note| %>
-      
-      <td>
         <body>
-          <ul>
-          <li>
+        <td>
+        <table>
+          <tr>
             <% if note.coverpicture.present? %>
-            <br>
             <div class="img_wrap">
-            <a href="#"><%= image_tag(asset_path('notes/cover/' + note.id.to_s + '/' + note.coverpicture), :width => '100%') %></a>
+            <a href="#"><%= image_tag(asset_path('notes/cover/' + note.id.to_s + '/' + note.coverpicture), :width => '50%') %></a>
             </div>
             <% end %>
-          </li>
-          </ul>
-          <ul>
-          <li>
+          </tr>
+          <tr>
             <%= note.title %><br>
             <%= note.user.name %><br>
             <%= note.grade.grade %><br>
             <%= note.subject.subjectname %><br>
             <%= note.good %>
-          </li>
-          </ul>
+            <tr><%= link_to '詳細', note, class: "btn-flat-border" %></tr> 
+            <tr><%= link_to '削除', note, method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn-flat-border" %></tr> 
+          </tr>
+        </table>
+        </td>
         </body>
-        <td><%= link_to '詳細', note, class: "btn-flat-border" %></td> 
-      </td>
-
     <% end %>
+    </tr>
   </tbody>
+  </table>
+</td>
+</tr>
+
 </table>
