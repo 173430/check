@@ -10,6 +10,7 @@ class GroupsController < ApplicationController
   # GET /groups/1
   # GET /groups/1.json
   def show
+  
   end
 
   # GET /groups/new
@@ -37,7 +38,6 @@ class GroupsController < ApplicationController
         f.write(params[:group][:icon].read)
       }
     end
-
 
 
     respond_to do |format|

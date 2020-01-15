@@ -17,10 +17,11 @@
 //= require_tree .
 
 function postMessage(){
-    event.preventDefault();
-    var element = document.querySelector('input[type="text"]');
-    var userid = document.getElementById('input[type="hidden"]');
-    App.chat.speak(element.value);
-    element.value = '';
-  }
-  
+  event.preventDefault();
+  var element = document.querySelector('input[type="text"]');
+  var group_id = $('group_id').val();
+  var user_id = $('user_id').val();
+  App.chat.speak(element.value);
+  element.value = '';
+}
+
