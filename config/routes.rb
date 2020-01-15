@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :notepictures
   resources :groupmembers
   resources :groups
   get 'mypage/profile'
@@ -21,6 +20,8 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
 
   get 'signup' => 'users#new'
+  
+  get '/chat/show/:group_id', to: 'chat#show'
 
   # For details on the DSL available within this file,see http://guides.rubyonrails.org/routing  .html
   resources :users, only: [:create]
@@ -36,4 +37,6 @@ Rails.application.routes.draw do
   resources :subjects
   resources :grades
   resources :schools
+
 end
+

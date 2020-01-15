@@ -8,20 +8,23 @@ App.chat = App.cable.subscriptions.create("ChatChannel", {
   },
 
   received: function(data) {
+    var group_id = $('group_id').val();
+    var user_id = $('user_id').val();
+    if(group_id == data['group_id']){
     $('#messages').append('<li>' + data['message'] + '</li>');
-    $('#userid').append(data['userid']);
     $('#target').scrollTop($('#target').get(0).scrollHeight);
+    }
     return
   },
 
-  speak: function(message,user_id) {
+  speak: function(message,group_id,user_id) {
     return this.perform('speak',{
       message: message,
+      group_id: group_id,
       user_id: user_id
     });
   }
 });
-
 
 /*
 $(document).on('keypress', '[data-behavior="chat_input"]', function(event) {
@@ -32,5 +35,4 @@ $(document).on('keypress', '[data-behavior="chat_input"]', function(event) {
   }
 });
 */
-
 
