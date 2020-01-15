@@ -10,6 +10,8 @@ class NotesController < ApplicationController
   # GET /notes/1
   # GET /notes/1.json
   def show
+    #@notepicture = Notepicture.all
+    @notepictures = Notepicture.where(note_id: @note)
   end
 
   # GET /notes/new
@@ -29,7 +31,7 @@ class NotesController < ApplicationController
     @note.user_id = current_user.id
     #@note.title = params[:note][:title]
     #@note.picture = params[:note][:picture]
-    #@note.coverpicture = params[:note][:coverpicture]
+    @note.coverpicture = params[:note][:coverpicture]
     @note.grade_id = params[:note][:grade_id]
     @note.subject_id = params[:note][:subject_id]
     #@note.extra = params[:note][:extra]
@@ -79,7 +81,7 @@ class NotesController < ApplicationController
       end
     end  
 
-
+    @note.picture = "app/assets/images/notes/contents/#{@note.id.to_s}/"
 
     respond_to do |format|
       if @note.save
