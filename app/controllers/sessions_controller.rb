@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-
+  before_action :log_out, only: [:new]
   
 
   def new

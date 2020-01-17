@@ -1,3 +1,8 @@
+<% if @user.nil? %>
+  <h4>現在ゲストとして利用中です。
+  マイページを利用する際は<a href="http://localhost:3000/login">ログイン</a>してください。</h4>
+<% else %>
+
 <div class="sample08">
 <h1>プロフィール</h1>
 </div>
@@ -24,7 +29,6 @@
 <% else %>
 <p><span class="text">公開情報&nbsp;</span><span class="form-text">非公開</span></p>
 <% end %>
-<span class="form-text">秘密の質問</span>
 
 <br>
 <br>
@@ -41,3 +45,5 @@
 
 <td><%= link_to 'プロフィール編集', edit_user_path(@user.id), class: "btn-flat-border" %></td>
 </h5>
+
+<% end %>
