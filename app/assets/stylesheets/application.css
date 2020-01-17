@@ -228,6 +228,7 @@ a.cp_btn:hover:before {
   table td{
     font-weight: bold;
     color: gray;
+    text-align:  center;
   }
 
   table tr{
