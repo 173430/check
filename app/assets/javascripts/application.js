@@ -18,10 +18,9 @@
 
 function postMessage(){
   event.preventDefault();
-  var element = document.querySelector('input[type="text"]');
-  var group_id = $('group_id').val();
-  var user_id = $('user_id').val();
-  App.chat.speak(element.value);
-  element.value = '';
+  var message = $('#chat_input').val()
+  var group_id = $('#group_id').val();
+  var user_id = $('#user_id').val();
+  App.chat.speak(message, group_id, user_id);
 }
 

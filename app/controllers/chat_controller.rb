@@ -1,8 +1,8 @@
 class ChatController < ApplicationController
   def show
-    @messages = Message.all
+    @message = Message.all
     @group_id = params[:group_id]
-    @user = current_user
+    @user_id = current_user.id
   end
  
   def new_message

@@ -3,15 +3,13 @@
   <div id="target" class="box">
     <ul id="messages">
     </ul>    
-    </ul>
   </div> 
   <form>  
-      <label>投稿内容: <input type="text" data-behavior="chat_input" id="chat_input">
-            <input type="hidden" value="<%= @group_id %>" id="group_id"/>
-            <input type="hidden" value="<%= @user.id %>" id="user_id"/>
-            <input type="submit" value="投稿する" onClick="postMessage()"/>
-      </label>
+      <label>投稿内容: </label>
+      <input type="text" data-behavior="chat_input" id="chat_input"/>
+      <input type="hidden" value="<%= @group_id %>" id="group_id"/>
+      <input type="hidden" value="<%= @user_id %>" id="user_id"/>
+      <input type="submit" value="投稿する" onClick="postMessage()"/>
   </form>
 
-<a href = 'http://localhost:3000/groups'>グループ一覧へ</a>
 

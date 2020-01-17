@@ -9,8 +9,10 @@ class ChatChannel < ApplicationCable::Channel
   end
 
   def speak(data)
-    message = Message.create!(body: data['message'], group_id: data['group_id'], user_id: current_user.id)
+    message = Message.create!(body: data['message'], group_id: data['group_id'], user_id: data['user_id'])
     ActionCable.server.broadcast 'chat_channel', message: data['message'], group_id: data['group_id'], user_id: data['user_id']
+    #message = Message.create!(body: data['message'], group_id: group, user_id: user)
+    #ActionCable.server.broadcast 'chat_channel', message: data['message'], group_id: group, user_id: user
   end
 end
 
