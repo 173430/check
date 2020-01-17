@@ -46,6 +46,11 @@ a.header:hover{
     color: white;
   }
 
+  h3 {
+      text-align: right;
+      color: gray;
+     }
+
 /*線*/
   hr {
     height: 1px;

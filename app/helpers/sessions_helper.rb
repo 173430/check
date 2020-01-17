@@ -18,7 +18,7 @@ module SessionsHelper
   end
 
   def logged_in?
-    !current_user.nil?
+    return !current_user.nil?
     #ログイン中の状態＝セッションにユーザーが存在する＝current_userがnilでない状態。
   end
 

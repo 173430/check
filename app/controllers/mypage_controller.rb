@@ -1,10 +1,12 @@
 class MypageController < ApplicationController
+  before_action :require_login
 
   def profile
     @user = current_user
     logger.debug 'カレントユーザ'
     logger.debug @user.userid
     #@user = User.where("userid='@userid'")
+    log_out
   end
 
   def edit
