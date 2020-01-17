@@ -270,8 +270,10 @@ body {
   border: none;
 }
 
-.kome {
-  font-size: 1.2em;
-  text-align: center;
+/*※の文字*/
+.sample1 {  
+  font-weight: bold;
+  font-family: "serif";
   color: gray;
+  text-align: center;
 }

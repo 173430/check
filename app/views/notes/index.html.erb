@@ -8,37 +8,51 @@
 <a href="http://localhost:3000/notes/new" class="btn-open">ノートを作る</a>
 </div>
 
+<div class="sample1">
+※画像をクリックでノートの詳細画面に遷移します。
+</div>
+
 <table style="border-collapse: collapse">
-<% @notes.each do |note| %>
 
-<tr>
+<% colNum = 0 %>
+<table>
   <tbody>
-  <td><%= note.user.name %></td>
-    <td><%= note.title %></td>
-    
-    <td width=200>
-    <% if note.coverpicture.present? %>
-      <br>
-      <%= image_tag(asset_path('notes/cover/' + note.id.to_s + '/' + note.coverpicture), :width => '100%') %>
-    <% end %>
+    <% @notes.each do |note| %>
+      <% colNum = colNum + 1%>
+      <% if colNum == 4 %>
+      </tr>
+      <tr>
+      <%  colNum = 1 %>
+      <% end %>
+      <td width="30%">
+      <table>
+        <tr>
+        <td width="100%">
+        <% if note.coverpicture.present? %>
+        <br>
+        <%= link_to image_tag(asset_path('notes/cover/' + note.id.to_s + '/' + note.coverpicture), :width => '100%'), note %>
+        <% end %>
+        </td>
+        </tr>
+        <tr>
+        <td width="100%">
+        <%= note.grade.grade %>
+        <br>
+        <%= note.subject.subjectname %>
+        <br>
+        <%= note.extra %>
+        <br>
+        <%= note.good %>
+        <br>
+        <% if note.release == true %>
+          公開
+        <% else %>
+          
+        <% end %>
+        </td>
+        </tr>
+      </table>
     </td>
-  
-    <td><%= note.grade.grade %></td>
-    <td><%= note.subject.subjectname %></td>
-    <td><%= note.extra %></td>
-    <td><%= note.good %></td>
-    <td>
-    <% if note.release == true %>
-      公開
-    <% else %>
-      非公開
-    <% end %>
-    </td>
-    <td><%= link_to '詳細', note, class: "btn-flat-border" %></td>  
-    <td><%= link_to '編集', edit_note_path(note), class: "btn-flat-border" %></td>
-    <td><%= link_to '削除', note, method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn-flat-border" %></td>
-  </tr>
+  <% end %>
 </tbody>
-<% end %>
-
 </table>
