@@ -8,8 +8,8 @@ App.chat = App.cable.subscriptions.create("ChatChannel", {
   },
 
   received: function(data) {
-    var group_id = $('group_id').val();
-    var user_id = $('user_id').val();
+    var group_id = $('#group_id').val();
+    var user_id = $('#user_id').val();
     if(group_id == data['group_id']){
     $('#messages').append('<li>' + data['message'] + '</li>');
     $('#target').scrollTop($('#target').get(0).scrollHeight);
