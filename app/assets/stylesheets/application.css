@@ -269,3 +269,9 @@ body {
   transition-duration: 0.3s;
   border: none;
 }
+
+.kome {
+  font-size: 1.2em;
+  text-align: center;
+  color: gray;
+}

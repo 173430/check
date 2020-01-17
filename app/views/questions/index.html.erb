@@ -42,6 +42,10 @@
 </div>
 <br>
 
+<div class="kome">
+※画像をクリックで質問の詳細画面に遷移します。
+</div>
+
 <% colNum = 0 %>
 <table>
   <tbody>
@@ -58,7 +62,7 @@
           <td width="100%">
           <% if question.picture.present? %>
             <br>
-            <%= image_tag(asset_path('q&a/questions/' + question.picture), :width => '100%') %>
+            <%= link_to image_tag(asset_path('q&a/questions/' + question.picture), :width => '100%'), question %>
           <% end %>
           </td>
           </tr>
