@@ -42,36 +42,45 @@
 </div>
 <br>
 
+<% colNum = 0 %>
 <table>
-
   <tbody>
     <% @questions.each do |question| %>
-      <td width='30%'>
+      <% colNum = colNum + 1%>
+      <% if colNum == 4 %>
+      </tr>
+      <tr>
+      <%  colNum = 1 %>
+      <% end %>
+      <td width="30%">
         <table>
           <tr>
-          <td width=200>
+          <td width="100%">
           <% if question.picture.present? %>
             <br>
             <%= image_tag(asset_path('q&a/questions/' + question.picture), :width => '100%') %>
           <% end %>
           </td>
           </tr>
-
           <tr>
-          <td>
+          <td width="100%">
             <% if question.nameless == true %>
               匿名
             <% else %>
               <%= question.user.name %>
             <% end %>
+            <br>
             <%= question.question %>
+            <br>
             <%= question.grade.grade %>
+            <br>
             <%= question.subject.subjectname %>
             <% if question.solve == true %>
               解決
             <% else %>
               未解決
             <% end %>
+          </td>
           </tr>
         </table>
       </td>
