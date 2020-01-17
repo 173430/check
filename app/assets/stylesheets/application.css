@@ -85,7 +85,7 @@ a.header:hover{
     background: #87cefa;
     color: white;
   }
-/*質問するボタン,新規グループ作成ボタン*/
+/*質問するボタン,グループを作るボタン*/
 .container {
     font-family: "Yu Gothic", YuGothic, Verdana, 'Hiragino Kaku Gothic ProN','Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, sans-serif;
     text-align: center;
@@ -228,27 +228,12 @@ a.cp_btn:hover:before {
   table td{
     font-weight: bold;
     color: gray;
+    text-align:  center;
   }
 
   table tr{
     max-width: 100%; 
     height: auto;
-  }
-
-  .alt-table-responsive {
-    max-width: 100%; 
-    overflow-y: hidden;
-    overflow-x: auto;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  ul{
-    width: 200px; 
-  }
-
-  li {
-    list-style-type: none;
   }
 
 /*マイページ*/
@@ -283,4 +268,12 @@ body {
   opacity: 0.6;
   transition-duration: 0.3s;
   border: none;
+}
+
+/*※の文字*/
+.sample1 {  
+  font-weight: bold;
+  font-family: "serif";
+  color: gray;
+  text-align: center;
 }
