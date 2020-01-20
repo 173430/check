@@ -278,7 +278,5 @@ body {
 /*※の文字*/
 .sample1 {  
   font-weight: bold;
-  font-family: "serif";
   color: gray;
-  text-align: center;
 }
