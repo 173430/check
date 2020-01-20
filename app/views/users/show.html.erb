@@ -4,7 +4,6 @@
 <h1>ユーザー情報</h1>
 </div>
 
-<%= link_to 'プロフィールを編集', mypage_edit_path(@user), class: "btn-flat-border" %>
 <%= link_to 'プロフィール画面へ', mypage_profile_path, class: "btn-flat-border" %>
 
 <h4>
@@ -26,7 +25,6 @@
 <% if @user.icon.present? %>
 <p>
   <span class="text"><strong>アイコン:</strong></span>
-  <%= image_tag(asset_path('mypage/icons/' + @user.icon)) %>
 </p>
 <% end %>
 

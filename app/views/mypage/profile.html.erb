@@ -7,6 +7,11 @@
 <h1>プロフィール</h1>
 </div>
 
+<td width="100%">
+  <% if @user.icon.present? %>
+    <%= link_to image_tag(asset_path('mypage/icons/' + @user.id.to_s + '/' + @user.icon), :width => '100%') %>
+  <% end %>
+</td>
 
 <h4>
 <p>
@@ -30,6 +35,9 @@
 <p><span class="text">公開情報&nbsp;</span><span class="form-text">非公開</span></p>
 <% end %>
 
+<p><span class="text">パスワード</span></p>
+<p>&nbsp;<span class="form-text">-----------------------</span></p>
+
 <br>
 <br>
 <br>
@@ -44,6 +52,7 @@
 <p><span class="form-text">ベストアンサー数</span></p>
 
 <td><%= link_to 'プロフィール編集', edit_user_path(@user.id), class: "btn-flat-border" %></td>
+<td><%= link_to 'パスワードを変更する', mypage_passwordcheck_path(@user.id), class: "btn-flat-border" %></td>
 </h5>
 
 <% end %>
