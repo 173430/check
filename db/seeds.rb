@@ -66,3 +66,8 @@ User.create(:classroom_id => 2, :userid => 's20171414', :name => '金築拓也',
 Note.create(:user_id => 1, :title => '地震', :grade_id => 3, :subject_id => 2, :extra => 'プレートテクトニクスです', :good => 4)
 
 Group.create(:name => '森田')
+
+
+User.create(:classroom_id => 2, :userid => 's20171414', :name => '金築拓也', :introduce => 'こんにちは', :password => '8989')
+User.create(:classroom_id => 3, :userid => 's20171421', :name => '佐野友哉', :introduce => 'こんばんは', :password => '2222')
+
