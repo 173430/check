@@ -43,6 +43,8 @@ class MypageController < ApplicationController
     @user = current_user
     respond_to do |format|
       if params[:user][:password] == params[:user][:subpassword]
+        @user.password = params[:user][:password]
+        @user.save
         format.html { redirect_to action: 'completed' }
       else
         flash[:alart] = 'パスワードが違います'

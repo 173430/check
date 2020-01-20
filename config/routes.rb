@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :groupmembers
   resources :groups
   get 'mypage/profile'
+  post 'mypage/profile'
   patch 'mypage/profile'
   get 'mypage/edit'
   get 'mypage/passwordcheck'

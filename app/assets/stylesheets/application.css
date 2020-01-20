@@ -46,11 +46,6 @@ a.header:hover{
     color: white;
   }
 
-  h3 {
-      text-align: right;
-      color: gray;
-     }
-
 /*線*/
   hr {
     height: 1px;
@@ -279,11 +274,19 @@ body {
 .sample1 {  
   font-weight: bold;
   color: gray;
+  text-align: center;
 }
 
-/*画像*/
-img {
-  width: 300px;
-  height: 300px;
-  object-fit: cover; /* この一行を追加するだけ！ */
+h3 {
+  text-align: right;
+  color: gray;
+ }
+
+ /*画像*/
+ .trim-image-to-circle {
+  /*background-image: url("summerriver.jpg");  /* 表示する画像 */
+  width:  180px;    
+  height: 180px;   
+  border-radius: 50%;  
+  background-position: center;  /* 横長画像の左上を基準に表示 */
 }
