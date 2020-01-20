@@ -283,10 +283,33 @@ h3 {
  }
 
  /*画像*/
- .trim-image-to-circle {
-  /*background-image: url("summerriver.jpg");  /* 表示する画像 */
-  width:  180px;    
-  height: 180px;   
-  border-radius: 50%;  
-  background-position: center;  /* 横長画像の左上を基準に表示 */
+ img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover; /* この一行を追加するだけ！ */
+}
+
+/*クリックで画像を拡大する*/
+/* サムネイルの幅300px，大きい画像の幅900px */
+.img300-900 input {display: none;}
+.img300-900 input + img {width: 100%; cursor: pointer;}
+.img300-900 input:checked + img {width: 100%;}
+/* サムネイルの幅200px，大きい画像の幅600px */
+.img200-600 input {display: none;}
+.img200-600 input + img {width: 200px; cursor: pointer;}
+.img200-600 input:checked + img {width: 600px;}
+
+/*アイコン*/
+.box {
+  width: 150px;
+  height: 150px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 300px; /*追加*/
+}
+.image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -40%); /*調整*/
 }
