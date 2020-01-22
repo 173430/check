@@ -6,6 +6,14 @@ class NotesController < ApplicationController
   # GET /notes.json
   def index
     @notes = Note.all
+    @search_params = note_search_params
+    @notes = Note.search(@search_params).includes(:subject, :grade)
+    logger.debug 'インデックス'
+    logger.debug @search_params
+  end
+
+  def note_search_params
+    params.fetch(:search, {}).permit(:search, :subject_id, :grade_id)
   end
 
   # GET /notes/1
@@ -13,6 +21,7 @@ class NotesController < ApplicationController
   def show
     #@notepicture = Notepicture.all
     @notepictures = Notepicture.where(note_id: @note)
+    @user = current_user
   end
 
   # GET /notes/new

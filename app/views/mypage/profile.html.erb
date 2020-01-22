@@ -7,6 +7,13 @@
 <h1>プロフィール</h1>
 </div>
 
+<div class="header">
+    <link rel="stylesheet" href="application.css" type="text/css">
+    <h2><td><%= link_to 'マイノート', mypage_mynote_path(@user.id), class: "btn-flat-border" %></td>
+    <td><%= link_to 'マイチャット', mypage_mychat_path(@user.id), class: "btn-flat-border" %></td>
+    <td><%= link_to 'マイクエスチョン', mypage_myquestion_path(@user.id), class: "btn-flat-border" %></td></h2>
+</div>
+
 <td width="100%">
 <div class="box">
 <div class="image">
