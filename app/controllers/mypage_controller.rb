@@ -13,6 +13,22 @@ class MypageController < ApplicationController
     
   end
 
+  def mynote
+    @user = current_user
+    @notes = Note.where(user_id: @user.id)
+  end
+
+  def mychat
+    @user = current_user
+  end
+
+  def myquestion
+    @user = current_user
+    @questions = Question.where(user_id: @user.id)
+
+  end
+
+
   def passwordcheck
 
     @user = current_user

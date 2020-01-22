@@ -10,6 +10,11 @@ Rails.application.routes.draw do
   post 'mypage/passwordequal'
   patch 'mypage/passwordequal'
 
+  get 'mypage/mynote'
+  get 'mypage/mychat'
+  get 'mypage/myquestion'
+
+
   get 'mypage/passwordedit'
   post 'mypage/editcheck'
   patch 'mypage/editcheck'

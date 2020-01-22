@@ -1,0 +1,57 @@
+<div class="header">
+    <link rel="stylesheet" href="application.css" type="text/css">
+    <h2><td><%= link_to 'マイノート', mypage_mynote_path(@user.id), class: "btn-flat-border" %></td>
+    <td><%= link_to 'マイチャット', mypage_mychat_path(@user.id), class: "btn-flat-border" %></td>
+    <td><%= link_to 'マイクエスチョン', mypage_myquestion_path(@user.id), class: "btn-flat-border" %></td></h2>
+</div>
+
+<div class="sample08">
+<h1>マイノート</h1>
+</div>
+
+<div class="sample1">
+※画像をクリックでノートの詳細画面に遷移します。
+</div>
+
+<table style="border-collapse: collapse">
+
+<% colNum = 0 %>
+<table>
+  <tbody>
+    <% @notes.each do |note| %>
+        <% colNum = colNum + 1%>
+        <% if colNum == 4 %>
+        </tr>
+        <tr>
+        <%  colNum = 1 %>
+        <% end %>
+        <td width="30%">
+        <table>
+          <tr>
+          <td width="100%">
+          <% if note.coverpicture.present? %>
+          <br>
+          <%= link_to image_tag(asset_path('notes/cover/' + note.id.to_s + '/' + note.coverpicture), :width => '100%'), note %>
+          <% end %>
+          </td>
+          </tr>
+          <tr>
+          <td width="100%">
+          <%= note.user.name %>
+          <br>
+          <%= note.grade.grade %>
+          <br>
+          <%= note.subject.subjectname %>
+          <br>
+          <% if note.release == true %>
+            公開中
+          <% else %>
+            非公開中
+          <% end %>
+          </td>
+          </tr>
+        </table>
+      </td>
+    <% end %>
+  </tbody>
+  </table>

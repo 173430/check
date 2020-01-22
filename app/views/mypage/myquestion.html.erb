@@ -1,0 +1,66 @@
+<div class="header">
+    <link rel="stylesheet" href="application.css" type="text/css">
+    <h2><td><%= link_to 'マイノート', mypage_mynote_path(@user.id), class: "btn-flat-border" %></td>
+    <td><%= link_to 'マイチャット', mypage_mychat_path(@user.id), class: "btn-flat-border" %></td>
+    <td><%= link_to 'マイクエスチョン', mypage_myquestion_path(@user.id), class: "btn-flat-border" %></td></h2>
+</div>
+
+<div class="sample08">
+<h1>マイクエスチョン</h1>
+</div>
+
+<div class="container">
+<a href="http://localhost:3000/questions/new" class="btn-open">質問する</a>
+</div>
+</div>
+<br>
+
+<div class="sample1">
+※画像をクリックで質問の詳細画面に遷移します。
+</div>
+
+<% colNum = 0 %>
+<table>
+<tbody>
+  <% @questions.each do |question| %>
+    <% colNum = colNum + 1%>
+    <% if colNum == 4 %>
+    </tr>
+    <tr>
+    <%  colNum = 1 %>
+    <% end %>
+    <td width="30%">
+      <table>
+        <tr>
+        <td>
+        <% if question.picture.present? %>
+          <br>
+          <%= link_to image_tag(asset_path('q&a/questions/' + question.picture), :width => '100%',), question %>
+        <% end %>
+        </td>
+        </tr>
+        <tr>
+        <td width="100%">
+          <% if question.nameless == true %>
+            匿名
+          <% else %>
+            <%= question.user.name %>
+          <% end %>
+          <br>
+          <%= question.question %>
+          <br>
+          <%= question.grade.grade %>
+          <br>
+          <%= question.subject.subjectname %>
+          <% if question.solve == true %>
+            解決
+          <% else %>
+            未解決
+          <% end %>
+        </td>
+        </tr>
+      </table>
+    </td>
+  <% end %>
+</tbody>
+</table>
