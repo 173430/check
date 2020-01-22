@@ -11,10 +11,14 @@ App.chat = App.cable.subscriptions.create("ChatChannel", {
     var group_id = $('#group_id').val();
     var user_id = $('#user_id').val();
     if(group_id == data['group_id']){
-    $('#messages').append('<li>' + data['message'] + '</li>');
-    $('#target').scrollTop($('#target').get(0).scrollHeight);
+      if(user_id == data['user_id']){
+        $('#messages').append('<div class="line__right"><div class="line__right-text"><div class="text">' + data['message'] + '</div></div></div>');
+      }else{
+        $('#messages').append('<div class="line__left"><div class="line__left-text"><div class="text">' + data['message'] + '</div></div></div>');
+      }
+      $('#target').scrollTop($('#target').get(0).scrollHeight);
+      return;
     }
-    return
   },
 
   speak: function(message,group_id,user_id) {

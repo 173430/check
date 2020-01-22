@@ -3,6 +3,7 @@ class ChatController < ApplicationController
     @message = Message.all
     @group_id = params[:group_id]
     @user_id = current_user.id
+    @user_name = current_user.name
   end
  
   def new_message

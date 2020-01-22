@@ -290,14 +290,9 @@ h3 {
 }
 
 /*クリックで画像を拡大する*/
-/* サムネイルの幅300px，大きい画像の幅900px */
 .img300-900 input {display: none;}
-.img300-900 input + img {width: 100%; cursor: pointer;}
-.img300-900 input:checked + img {width: 100%;}
-/* サムネイルの幅200px，大きい画像の幅600px */
-.img200-600 input {display: none;}
-.img200-600 input + img {width: 200px; cursor: pointer;}
-.img200-600 input:checked + img {width: 600px;}
+.img300-900 input + img {width: 30%; height: 30%; cursor: pointer;}
+.img300-900 input:checked + img {width: 50%;}
 
 /*アイコン*/
 .box {

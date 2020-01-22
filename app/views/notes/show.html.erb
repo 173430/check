@@ -19,26 +19,30 @@
 </p>
 
 <p>
-<span class="text"><strong>表紙&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></span>
+<span class="text"><strong>表紙</strong></span>
+  <p class="img300-900" style="margin-bottom: 25px;">  
   <% if @note.coverpicture.present? %>
-    <br>
-    <%= image_tag(asset_path('notes/cover/' + @note.id.to_s + '/' + @note.coverpicture), :width => '30%') %>
+    <label for="p01">
+      <input type="checkbox" id="p01">
+        <%= image_tag(asset_path('notes/cover/' + @note.id.to_s + '/' + @note.coverpicture), :width => '30%') %>
+    </label>  
   <% end %>
 </p>
 
 
 <p>
-<span class="text"><strong>ノート&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></span>
+<span class="text"><strong>ノート</strong></span>
 <span class="text"></span>
+<p class="img300-900" style="margin-bottom: 25px;">  
   <% if @note.picture.present? %>
-    <br>
+  <label for="p02">
+    <input type="checkbox" id="p02">
       <% @notepictures.each do |notepicture| %>
-         <%= image_tag(asset_path('notes/contents/' + @note.id.to_s + '/' + notepicture.picture), :width => '30%') %>
+        <%= image_tag(asset_path('notes/contents/' + @note.id.to_s + '/' + notepicture.picture), :width => '30%') %>
       <% end %>
+  </label>
   <% end %>
 </p>
-
-
 
 <p>
 <span class="text"><strong>学年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></span>
