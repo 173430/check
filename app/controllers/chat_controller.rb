@@ -1,8 +1,8 @@
 class ChatController < ApplicationController
   def show
     @group_id = params[:group_id]
+    @group_name = Group.find(@group_id).name
     @user_id = current_user.id
-    @user_icon = current_user.icon
     @messages = Message.where(group_id: @group_id)
   end
  

@@ -11,12 +11,12 @@
 
 .line__container {
 	padding:0;
-	background: #7494c0;
+	background: azure;
 	overflow: hidden;
 	width: 1050px;
 	max-width: 1050px;
 	margin: 0px auto;
-	font-size: 80%;
+	font-size: 120%;
 	border: 1px solid #000 ;
   }
   
@@ -90,8 +90,9 @@
 	position: relative;
 	padding: 10px;
 	border-radius: 20px;
-	background-color: #ffffff;
+	background-color: #c0c0c0;
 	max-width: 40%;
+	color: #000;
   }
   
   /* 吹き出し */
@@ -103,7 +104,7 @@
 	height: 0;
 	left: -10px;
 	top: 10px;
-	border-right: 20px solid #ffffff;
+	border-right: 20px solid #c0c0c0;
 	border-top: 10px solid transparent;
 	border-bottom: 10px solid transparent;
   }
@@ -123,10 +124,10 @@
   .line__container .line__right .text {
 	padding: 10px;
 	border-radius: 20px;
-	background-color: #8de055;
-	margin: 0;
+	background-color: #808080;
 	margin-left: 80px;
-	max-width: 40%;
+	max-width: 100%;
+	color: #ffffff;
   }
   
   /* 吹き出し */
@@ -138,7 +139,7 @@
 	height: 0;
 	right: -10px;
 	top: 10px;
-	border-left: 20px solid #8de055;
+	border-left: 20px solid #808080;
 	border-top: 10px solid transparent;
 	border-bottom: 10px solid transparent;
   }
