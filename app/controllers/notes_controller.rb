@@ -39,6 +39,8 @@ class NotesController < ApplicationController
     #@note.good = params[:note][:good]
     #@note.release = params[:note][:release]
 
+    
+
     @note.save
 
     notepicture = Notepicture.new

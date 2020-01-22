@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
        #paramsで送られてきたセッションの中のパスワード（ハッシュ化されている）が
        #DB内のハッシュ化されたpassword_digestカラムの値と一致しているかどうかを検証することで、ユーザーを識別
        log_in user
-       redirect_to user
+       redirect_to mypage_profile_path
     else
       flash.now[:danger] = 'Invalid email/password combination'
       render 'new'

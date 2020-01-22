@@ -40,16 +40,27 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    @user = User.find(params[:id])
+    #@user.icon = params[:user][:icon]
+    #@user.id = params[:user][:id]
+
+
+
+    unless File.exist?("app/assets/images/mypage/icons/" + @user.id.to_s)
+      Dir.mkdir("app/assets/images/mypage/icons/" + @user.id.to_s)
+    end
+
     if params[:user][:icon].present?
       @user.icon = params[:user][:icon].original_filename
-      logger.debug @user.icon
-      File.open("app/assets/images/mypage/icons/#{@user.icon}", 'w+b') { |f|
+      File.open("app/assets/images/mypage/icons/#{@user.id.to_s}/#{@user.icon}", 'w+b') { |f|
         f.write(params[:user][:icon].read)
-    }
+      }
+    else
+      @user.icon = nil 
     end
 
     respond_to do |format|
-      if @user.update(user_params)
+      if @user.update(icon: @user.icon, name: params[:user][:name], introduce: params[:user][:introduce], release: params[:user][:release])
         format.html { redirect_to @user, notice: '編集を確定しました' }
         format.json { render :show, status: :ok, location: @user }
       else
