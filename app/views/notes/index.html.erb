@@ -4,6 +4,30 @@
 <h1>ノート一覧</h1>
 </div>
 
+<div class="search-form">
+ <%= form_with(scope: :search, url: notes_path, method: :get, local: true) do |f| %>
+   <div class="field">
+   <div class="box2">
+     <%= f.label(:search, '検索内容') %>
+     <%= f.text_field :search, value: @search_params[:search], :size=>"30", placeholder: "検索内容を入力してください" %>
+     <br>
+     <br>
+     <%= f.label :学年 %>
+     <%= f.select :grade_id, Grade.all.map{|o| [o.grade, o.id]}, :include_blank => '指定なし' %>
+     <br>
+     <br>
+     <%= f.label :教科・検定 %>
+     <%= f.select :subject_id, Subject.all.map{|o| [o.subjectname, o.id]}, :include_blank => '指定なし' %>
+     <br>
+     <br>
+<form>
+  <p><input class="btn-flat-simple" type="submit" value="検索する"></p>
+</form>
+   </div>
+</div>
+
+  <% end %>
+
 <div class="container">
 <a href="http://localhost:3000/notes/new" class="btn-open">ノートを作る</a>
 </div>
