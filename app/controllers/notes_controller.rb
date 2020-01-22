@@ -13,6 +13,7 @@ class NotesController < ApplicationController
   def show
     #@notepicture = Notepicture.all
     @notepictures = Notepicture.where(note_id: @note)
+    @user = current_user
   end
 
   # GET /notes/new
