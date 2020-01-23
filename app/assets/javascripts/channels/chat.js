@@ -16,7 +16,7 @@ App.chat = App.cable.subscriptions.create("ChatChannel", {
       }else{
         $('#messages').append('<div class="line__left"><div class="line__left-text"><div class="text">' + data['message'] + '</div></div></div>');
       }
-      $('#target').scrollTop($('#target').get(0).scrollHeight);
+      $('#messages').scrollTop($('#messages').get(0).scrollHeight);
       return;
     }
   },
@@ -30,13 +30,6 @@ App.chat = App.cable.subscriptions.create("ChatChannel", {
   }
 });
 
-/*
-$(document).on('keypress', '[data-behavior="chat_input"]', function(event) {
-  if (event.keyCode === 13) {
-    App.chat.speak(event.target.value);
-    event.target.value = '';
-    return event.preventDefault();
-  }
+$(window).load(function(){
+  $('#messages').scrollTop($('#messages').get(0).scrollHeight);
 });
-*/
-

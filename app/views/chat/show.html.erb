@@ -1,7 +1,27 @@
-<h1>チャットルーム</h1>
+<h1><%= @group_name %></h1>
 
   <div id="target" class="line__container">
-        <div id="messages" class="line__contents scroll"></div>  
+      <div id="messages" class="line__contents scroll">
+      <% @messages.each do |message| %>
+        <% if message.user_id.to_i == @user_id %>
+        <div class="line__right">
+          <div class="line__right-text">
+            <div class="text">
+              <%= message.body %>
+            </div>
+          </div>
+        </div>
+        <% else %>
+        <div class="line__left">
+          <div class="line__left-text">
+            <div class="text">
+              <%= message.body %>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      <% end %>
+      </div>  
   </div>
   <form>  
       <label>投稿内容: </label>
