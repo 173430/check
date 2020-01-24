@@ -25,7 +25,7 @@ App.chat = App.cable.subscriptions.create("ChatChannel", {
     return this.perform('speak',{
       message: message,
       group_id: group_id,
-      user_id: user_id
+      user_id: user_id,
     });
   }
 });

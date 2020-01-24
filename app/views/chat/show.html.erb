@@ -3,7 +3,7 @@
   <div id="target" class="line__container">
       <div id="messages" class="line__contents scroll">
       <% @messages.each do |message| %>
-        <% if message.user_id.to_i == @user_id %>
+        <% if message.user_id.to_i == @user_id then %>
         <div class="line__right">
           <div class="line__right-text">
             <div class="text">
