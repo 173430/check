@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <div class="sample08">
-<h1>質問内容</h1>
+<h1>Contents of Question</h1>
 </div>
 
 <%= link_to '編集', edit_question_path(@question), class: 'btn-flat-border' %> |
@@ -15,7 +15,7 @@
   <% if @question.nameless == true %>
     匿名
   <% else %>
-    <%= current_user.name %>
+    <%= @question.user.name %>
   <% end %>
   </span>
 </td>
