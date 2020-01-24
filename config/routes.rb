@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :notegoods
   resources :groupmembers
   resources :groups
   get 'mypage/profile'
@@ -35,6 +36,7 @@ Rails.application.routes.draw do
   get 'chat/show'
   resources :notecomments
   resources :notes
+  post '/notes/:id', to: 'notes#releasechange'
   resources :answers
   resources :questions
   get 'questions/index'

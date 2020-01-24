@@ -47,6 +47,7 @@ class NotesController < ApplicationController
     #@note.extra = params[:note][:extra]
     #@note.good = params[:note][:good]
     #@note.release = params[:note][:release]
+    @note.release = 1
 
     
 
@@ -156,6 +157,80 @@ logger.debug "ノート画像" + @note.picture
       format.json { head :no_content }
     end
   end
+
+  def releasechange
+    @note = Note.find(params[:id])
+
+    if @note.release == true
+      @note.release = false
+    else
+      @note.release = true
+    end
+
+    respond_to do |format|
+      if @note.save
+        format.html { redirect_to @note, notice: '公開情報を変更しました' }
+        format.json { render :show, status: :ok, location: @note }
+      else
+        format.html { render :edit }
+        format.json { render json: @note.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def indexgood
+    @note.good = @note.good + 1
+    @notegood.user_id = @user.id
+    @notegood.note_id = @note.id
+
+    @note.save
+    @notegood.save
+
+    respond_to do |format|
+      if @note.save
+        format.html { redirect_to @note }
+        format.json { render :index, status: :ok, location: @note }
+      else
+        format.html { render :edit }
+        format.json { render json: @note.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def showgood
+    @note.good = @note.good + 1
+    @notegood.user_id = @user.id
+    @notegood.note_id = @note.id
+
+    @note.save
+    @notegood.save
+
+    respond_to do |format|
+      if @note.save
+        format.html { redirect_to @note }
+        format.json { render :show, status: :ok, location: @note }
+      else
+        format.html { render :edit }
+        format.json { render json: @note.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+
+
+
+
+
+  def showgood
+    @note.good = @note.good + 1
+    @notegood.user_id = @user.id
+    @notegood.note_id = @note.id
+
+    @note.save
+    @notegood.save
+  end
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

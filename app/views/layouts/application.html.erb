@@ -16,20 +16,20 @@
     </div>
     <% if current_user.nil? %>
       <h3>ゲスト</h3>
-      <h3><a href="http://localhost:3000/login">ログインする</a></h3>
+      <h3><a href="http://localhost:3000/login" class="btn-border">Login</a></h3>
     <% else %>
       <%=  %>
       <h3><%= current_user.name %></h3>
-      <h3><a href="http://localhost:3000/login">ログアウトする</a></h3>
+      <h3><a href="http://localhost:3000/login" class="btn-border">Logout</a></h3>
     <% end %>
 
 
     <div class="header">
     <link rel="stylesheet" href="application.css" type="text/css">
-    <h2><a href="http://localhost:3000/notes" class="btn-border">ノート</a>
-    <a href="http://localhost:3000/groups" class="btn-border">チャット</a>
+    <h2><a href="http://localhost:3000/notes" class="btn-border">Note</a>
+    <a href="http://localhost:3000/groups" class="btn-border">Chat</a>
     <a href="http://localhost:3000/questions" class="btn-border">Q&A</a>
-    <a href="http://localhost:3000/mypage/profile" class="btn-border">マイページ</a></h2>
+    <a href="http://localhost:3000/mypage/profile" class="btn-border">My Page</a></h2>
     </div>
     <hr>
     <%= yield %>
