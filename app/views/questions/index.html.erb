@@ -49,7 +49,7 @@
 <% colNum = 0 %>
 <table>
   <tbody>
-    <% @questions.first(15).each do |question| %>
+    <% @questions.each do |question| %>
       <% colNum = colNum + 1%>
       <% if colNum == 4 %>
       </tr>
