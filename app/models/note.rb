@@ -4,6 +4,7 @@ class Note < ApplicationRecord
     belongs_to :user
 
     has_many :notepictures
+    has_many :notegoods
 
     scope :search, -> (search_params) do
         return if search_params.blank?

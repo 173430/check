@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :notegoods
   resources :groupmembers
   resources :groups
   get 'mypage/profile'
