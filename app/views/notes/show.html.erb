@@ -69,24 +69,34 @@
   <td>
   <span class="form-text">
   <% if @note.release == true %>
-    公開
+    公開中
   <% else %>
-    非公開
+    非公開中
   <% end %>
   </span>
 </td>
 </p>
 </h4>
 
-<% if @user.id = @note.user_id %>
+<% if @user.id == @note.user_id %>
 
 <div class="container">
   <div class="btn-open">
   <%= link_to '編集', edit_note_path(@note) %>
   </div>
+  <% if @note.release == true %>
+    <div class="btn-open">
+      <%= link_to '非公開にする', @note, method: :releasechange, data: { confirm: '非公開にしますか？' } %>
+    </div>
+  <% else %>
+    <div class="btn-open">
+      <%= link_to '公開する', @note, method: :delete, data: { confirm: '公開しますか？' } %>
+    </div>
+  <% end %>
+  
   <div class="btn-open">
     <%= link_to '削除', @note, method: :delete, data: { confirm: '本当に削除押しますか？' } %>
-    </div>
+  </div>
 </div>
 
 <% end %>

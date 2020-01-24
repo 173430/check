@@ -47,6 +47,7 @@ class NotesController < ApplicationController
     #@note.extra = params[:note][:extra]
     #@note.good = params[:note][:good]
     #@note.release = params[:note][:release]
+    @note.release = 1
 
     
 
@@ -155,6 +156,28 @@ logger.debug "ノート画像" + @note.picture
       format.html { redirect_to notes_url, notice: 'ノートを削除しました' }
       format.json { head :no_content }
     end
+  end
+
+  def releasechange
+    @note = Note.find(params[:id])
+
+    if @note.release == true
+      @note.release = false
+    else
+      @note.release = true
+    end
+
+    respond_to do |format|
+
+    if @note.save
+      format.html { redirect_to @note, notice: '公開情報を変更しました' }
+      format.json { render :show, status: :ok, location: @note }
+    else
+      format.html { render :edit }
+      format.json { render json: @note.errors, status: :unprocessable_entity }
+    end
+
+  end
   end
 
   private

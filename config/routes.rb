@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   get 'chat/show'
   resources :notecomments
   resources :notes
+  post '/notes/:id', to: 'notes#releasechange'
   resources :answers
   resources :questions
   get 'questions/index'
