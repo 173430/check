@@ -3,6 +3,7 @@ class ChatController < ApplicationController
     @group_id = params[:group_id]
     @group_name = Group.find(@group_id).name
     @user_id = current_user.id
+    @user_name = User.find(@user_id).name
     @messages = Message.where(group_id: @group_id)
   end
  
