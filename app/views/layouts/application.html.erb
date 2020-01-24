@@ -16,11 +16,11 @@
     </div>
     <% if current_user.nil? %>
       <h3>ゲスト</h3>
-      <h3><a href="http://localhost:3000/login" class="btn-border">ログインする</a></h3>
+      <h3><a href="http://localhost:3000/login" class="btn-border">Login</a></h3>
     <% else %>
       <%=  %>
       <h3><%= current_user.name %></h3>
-      <h3><a href="http://localhost:3000/login" class="btn-border">ログアウトする</a></h3>
+      <h3><a href="http://localhost:3000/login" class="btn-border">Logout</a></h3>
     <% end %>
 
 

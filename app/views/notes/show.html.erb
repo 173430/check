@@ -1,11 +1,22 @@
 <div class="sample08">
-<h1>ノート内容</h1>
+<h1>Contents of Note</h1>
 </div>
 
 <p id="notice"><%= notice %></p>
 
-<%= link_to '編集', edit_note_path(@note), class: "btn-flat-border" %> |
-<%= link_to 'ノート一覧', notes_path, class: "btn-flat-border" %>
+<%= link_to 'ノート一覧', notes_path, class: "btn-flat-border" %> 
+<%= link_to '編集', edit_note_path(@note), class: "btn-flat-border" %>
+<% if @user.id == @note.user_id %>
+
+  <% if @note.release == true %>
+      <%= link_to '非公開にする', @note, class: "btn-flat-border", method: :releasechange, data: { confirm: '非公開にしますか？' } %> 
+  <% else %>
+      <%= link_to '公開する', @note, class: "btn-flat-border", method: :delete, data: { confirm: '公開しますか？' } %>
+  <% end %>
+  
+    <%= link_to '削除', @note, class: "btn-flat-border", method: :delete, data: { confirm: '本当に削除押しますか？' } %>
+
+<% end %>
 
 <h4>
 <p>
@@ -77,27 +88,4 @@
 </td>
 </p>
 </h4>
-
-<% if @user.id == @note.user_id %>
-
-<div class="container">
-  <div class="btn-open">
-  <%= link_to '編集', edit_note_path(@note) %>
-  </div>
-  <% if @note.release == true %>
-    <div class="btn-open">
-      <%= link_to '非公開にする', @note, method: :releasechange, data: { confirm: '非公開にしますか？' } %>
-    </div>
-  <% else %>
-    <div class="btn-open">
-      <%= link_to '公開する', @note, method: :delete, data: { confirm: '公開しますか？' } %>
-    </div>
-  <% end %>
-  
-  <div class="btn-open">
-    <%= link_to '削除', @note, method: :delete, data: { confirm: '本当に削除押しますか？' } %>
-  </div>
-</div>
-
-<% end %>
 
