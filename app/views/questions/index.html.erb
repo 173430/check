@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <div class="sample08">
-<h1>質問一覧</h1>
+<h1>Question</h1>
 </div>
 
 <div class="search-form">
@@ -79,6 +79,7 @@
             <%= question.grade.grade %>
             <br>
             <%= question.subject.subjectname %>
+            <br>
             <% if question.solve == true %>
               解決
             <% else %>

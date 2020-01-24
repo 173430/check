@@ -277,6 +277,12 @@ body {
   text-align: center;
 }
 
+.sample2 {  
+  font-weight: bold;
+  color: gray;
+  text-align: left;
+}
+
 h3 {
   text-align: right;
   color: gray;
