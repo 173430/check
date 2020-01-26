@@ -1,0 +1,2 @@
+module NotegoodsHelper
+end
