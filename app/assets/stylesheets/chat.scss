@@ -37,7 +37,7 @@
   }
   
   .line__container .scroll {
-	width: 1050px ;
+	width: 1050px;
 	height: 500px;
 	overflow-y: scroll;
   }
@@ -52,11 +52,14 @@
 	  width: 100%;
 	  position: relative;
 	  display: block;
+	  margin: 5px 0;
 	  margin-bottom: 5px;
-	  max-width: 80%;
+	  max-width: 75%;
+	  float: left;
 	  clear: both;
   }
   
+
   /* アイコン画像 */
   .line__container .line__left figure {
 	  width: 50px;
@@ -91,8 +94,8 @@
 	padding: 10px;
 	border-radius: 20px;
 	background-color: #c0c0c0;
-	max-width: 400px;
-	color: #000;
+	max-width:50%;
+	color:#000
   }
   
   /* 吹き出し */
@@ -114,7 +117,7 @@
 	  position: relative;
 	  display: block;
 	  margin: 5px 0;
-	  max-width: 75%;
+	  max-width: 45%;
 	  float: right;
 	  margin-right: 15px;
 	  clear: both;
@@ -127,7 +130,7 @@
 	background-color: #808080;
 	margin-left: 80px;
 	max-width: 100%;
-	color: #ffffff;
+	color: #ffffff
   }
   
   /* 吹き出し */
