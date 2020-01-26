@@ -60,10 +60,12 @@
           </td>
           </tr>
           <tr>
-          <td width="100%">
+          <td width="30%">
           <%= note.user.name %>
           <br>
           <%= note.grade.grade %>
+          <br>
+          <%= link_to image_tag(asset_path('extra/いいね.png'), :width => '50%'), notes_path, method: :indexgood %> 
           <br>
           <%= note.subject.subjectname %>
           </td>

@@ -295,6 +295,11 @@ h3 {
   object-fit: cover; /* この一行を追加するだけ！ */
 }
 
+.good {
+  width: 10px;
+  height: 10px;
+}
+
 /*クリックで画像を拡大する*/
 .img300-900 input {display: none;}
 .img300-900 input + img {width: 30%; height: 30%; cursor: pointer;}
