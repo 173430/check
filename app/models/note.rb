@@ -17,4 +17,19 @@ class Note < ApplicationRecord
     scope :subject_id_is, -> (subject_id) { where(subject_id: subject_id) if subject_id.present? }
     scope :grade_id_is, -> (grade_id) { where(grade_id: grade_id) if grade_id.present? }
 
+    def error_check
+        if title.blank?
+            errors[:base] << 'タイトルは必ず入力してください'
+        end
+
+        if picture.blank?
+            errors[:base] << '表紙は必ず入力してください'
+        end
+
+        if coverpicture.blank?
+            errors[:base] << 'ノートは必ず入力してください'
+        end
+
+    end
+    
 end
