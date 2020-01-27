@@ -17,4 +17,13 @@ class Question < ApplicationRecord
     scope :solve_is, -> (solve, para){ where(solve: solve) if para != "both"}
     scope :subject_id_is, -> (subject_id) { where(subject_id: subject_id) if subject_id.present? }
     scope :grade_id_is, -> (grade_id) { where(grade_id: grade_id) if grade_id.present? }
+
+  validate :error_check
+
+  def error_check
+    if question.blank?
+        errors[:base] << '質問内容は必ず入力してください'
+    end
+  end
+
 end

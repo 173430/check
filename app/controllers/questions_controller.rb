@@ -61,6 +61,11 @@ class QuestionsController < ApplicationController
         format.json { render json: @question.errors, status: :unprocessable_entity }
       end
     end
+
+    if @question.save
+      redirect_to questions_path
+    end
+
   end
 
   # PATCH/PUT /questions/1
