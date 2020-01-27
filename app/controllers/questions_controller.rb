@@ -62,10 +62,6 @@ class QuestionsController < ApplicationController
       end
     end
 
-    if @question.save
-      redirect_to questions_path
-    end
-
   end
 
   # PATCH/PUT /questions/1
