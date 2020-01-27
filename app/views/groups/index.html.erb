@@ -14,33 +14,30 @@
       <th>グループ名</th>
       <th>アイコン</th>      
       <th>管理者名</th>
-      <th>公開設定</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @groups.each do |group| %>
-      <tr>
-        <td><%= group.name %></td>
-        <td width=120>
-        <% if group.icon.present? %>
-          <br>
-          <%= image_tag(asset_path('groups/icons/' + group.icon), :width => '100%') %>
-        <% end %>
-        <td><%= group.user_id %></td>
-        <td>
-          <% if group.release == true %>
-            公開
-          <% else %>
-            非公開
-          <% end %>
-        </td>
-        <td><%= link_to '詳細', group, class: "btn-flat-border" %></td>
-        <td><%= link_to '編集', edit_group_path(group), class: "btn-flat-border" %></td>
-        <td><%= link_to '削除', group, method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn-flat-border" %></td>
-        <td><%= link_to '入室する',chat_show_path(group_id: group.id), class: "cp_btn" %></td>
-        </tr>
+      <% if group.release == true %>
+       <tr>
+         <td><%= group.name %></td>
+         <td width=120>
+         <% if group.icon.present? %>
+           <br>
+           <%= image_tag(asset_path('groups/icons/' + group.icon), :width => '100%') %>
+         <% end %>
+         <td><%= group.user_id %></td>
+         <td>
+         </td>
+         <td><%= link_to '詳細', group, class: "btn-flat-border" %></td>
+         <td><%= link_to '編集', edit_group_path(group), class: "btn-flat-border" %></td>
+         <td><%= link_to '削除', group, method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn-flat-border" %></td>
+         <td><%= link_to '入室する',chat_show_path(group_id: group.id), class: "cp_btn" %></td>
+         </tr>
+      <% end %>
+
     <% end %>
   </tbody>
 </table>

@@ -25,11 +25,11 @@
 
   <div class="field">
     <%= form.label :管理者 %>
-    <%= form.text_field :user_id, :size=>"30", placeholder: "代表者名を入力してください" %>
+    <%= current_user.name %>
   </div>
 
   <div class="field">
-    <%= form.label :公開する %>
+    <%= form.label :公開するにチェックを入れて下さい %>
     <%= form.check_box :release %>
   </div>
 

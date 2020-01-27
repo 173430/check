@@ -28,18 +28,24 @@
 
   <tbody>
    <% @groups.each do |group| %>
-       <tr>
-       <td><%= group.name %></td>
-       <td></td>
-       <td><%= group.user_id %></td>
-       <td>
-         <% if group.release == true %>
-           公開
-         <% else %>
-           非公開
-         <% end %>
-       <td><%= link_to '入室する',chat_show_path(group_id: group.id), class: "cp_btn" %></td>
-      </tr>
+       <% if group.user_id == current_user.name %>
+           <tr>
+             <td><%= group.name %></td>
+             <td></td>
+             <td><%= group.user_id %></td>
+             <td>
+              <% if group.release == true %>
+                 公開
+              <% else %>
+                 非公開
+              <% end %>
+             </td>
+             <td><%= link_to '詳細', group, class: "btn-flat-border" %></td>
+             <td><%= link_to '編集', edit_group_path(group), class: "btn-flat-border" %></td>
+             <td><%= link_to '削除', group, method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn-flat-border" %></td>
+             <td><%= link_to '入室する',chat_show_path(group_id: group.id), class: "cp_btn" %></td>
+           </tr>
+       <% end %>
    <% end %>
   </tbody>
 </table>

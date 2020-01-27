@@ -5,6 +5,7 @@ class GroupsController < ApplicationController
   # GET /groups
   # GET /groups.json
   def index
+    @users = User.all
     @groups = Group.all
   end
 
@@ -29,7 +30,7 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
     @group.name = params[:group][:name]
     @group.icon = params[:group][:icon]
-    @group.user_id = params[:group][:user_id]
+    @group.user_id = current_user.name
     @group.release = params[:group][:release]
 
     if params[:group][:icon].present?
