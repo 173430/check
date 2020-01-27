@@ -319,3 +319,8 @@ h3 {
   left: 50%;
   transform: translate(-50%, -40%); /*調整*/
 }
+
+/*questionの解決*/
+.solve {
+  color: red;
+}
