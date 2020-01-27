@@ -288,12 +288,12 @@ h3 {
   color: gray;
  }
 
- /*画像*/
+ /*画像
  img {
   width: 250px;
   height: 250px;
-  object-fit: cover; /* この一行を追加するだけ！ */
-}
+  object-fit: cover; /* この一行を追加するだけ！
+}*/
 
 .good {
   width: 10px;

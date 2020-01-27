@@ -106,10 +106,6 @@ class NotesController < ApplicationController
       end
     end
  
-    if @note.save
-      redirect_to notes_path
-    end
-
   end
 
   # PATCH/PUT /notes/1
