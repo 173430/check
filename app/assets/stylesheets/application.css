@@ -322,6 +322,6 @@ h3 {
 
 /*questionの解決*/
 .solve {
-    color: rgba(233, 30, 30, 0.7);
+    color: red;
     font-size: 20px;
 }

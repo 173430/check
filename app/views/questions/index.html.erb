@@ -81,7 +81,7 @@
             <%= question.subject.subjectname %>
             <br>
             <% if question.solve == true %>
-            <div class="solve">解決</div>
+            <%= image_tag(asset_path("解決.jpg"), :width => '50px') %>
             <% else %>
               未解決
             <% end %>
