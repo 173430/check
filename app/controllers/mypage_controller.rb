@@ -20,6 +20,7 @@ class MypageController < ApplicationController
 
   def mychat
     @user = current_user
+    @groups = Group.all
   end
 
   def myquestion

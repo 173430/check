@@ -10,6 +10,7 @@ App.chat = App.cable.subscriptions.create("ChatChannel", {
   received: function(data) {
     var group_id = $('#group_id').val();
     var user_id = $('#user_id').val();
+    var user_name = $('#user_name').val();
     if(group_id == data['group_id']){
       if(user_id == data['user_id']){
         $('#messages').append('<div class="line__right"><div class="line__right-text"><div class="text">' + data['message'] + '</div></div></div>');
@@ -21,11 +22,12 @@ App.chat = App.cable.subscriptions.create("ChatChannel", {
     }
   },
 
-  speak: function(message,group_id,user_id) {
+  speak: function(message,group_id,user_id,user_name) {
     return this.perform('speak',{
       message: message,
       group_id: group_id,
       user_id: user_id,
+      user_name: user_name,
     });
   }
 });
