@@ -37,6 +37,7 @@ Rails.application.routes.draw do
   resources :notecomments
   resources :notes
   post '/notes/:id', to: 'notes#releasechange'
+  get '/note_indexgood', to: 'notes#indexgood'
   resources :answers
   resources :questions
   get 'questions/index'
