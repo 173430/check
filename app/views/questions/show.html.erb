@@ -57,7 +57,7 @@
   <td>
   <span class="form-text">
   <% if @question.solve == true %>
-    解決
+  <br><%= image_tag(asset_path("解決.jpg"), :width => '70px') %>
   <% else %>
     未解決
   <% end %>
