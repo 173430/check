@@ -35,7 +35,7 @@
         <td>
         <% if question.picture.present? %>
           <br>
-          <%= link_to image_tag(asset_path('q&a/questions/' + question.picture), :width => '100%',), question %>
+          <%= link_to image_tag(asset_path('q&a/questions/' + question.picture), :width => '300px', :height => 'auto'), question %>
         <% end %>
         </td>
         </tr>
