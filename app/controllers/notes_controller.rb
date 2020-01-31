@@ -38,6 +38,7 @@ class NotesController < ApplicationController
   def create
     @note = Note.new(note_params)
 
+
     @note.user_id = current_user.id
     #@note.title = params[:note][:title]
     #@note.picture = params[:note][:picture]
@@ -48,10 +49,12 @@ class NotesController < ApplicationController
     #@note.good = params[:note][:good]
     #@note.release = params[:note][:release]
     @note.release = 1
+    @note.good = 0
 
-    
-
-    @note.save
+    if !@note.save
+      render :new
+      return
+    end
 
     notepicture = Notepicture.new
     notepicture.disp_order = 1
@@ -179,9 +182,23 @@ logger.debug "ノート画像" + @note.picture
   end
 
   def indexgood
-    @note.good = @note.good + 1
-    @notegood.user_id = @user.id
+
+
+
+    logger.debug @note
+    logger.debug @user
+    logger.debug "インデックスgoood"
+
+    @note = Note.find(params[:id])
+    logger.debug @note
+
+  @notegood = Notegood.new
+
+  
+  
+    @notegood.user_id = current_user.id
     @notegood.note_id = @note.id
+    @note.good = @note.good + 1
 
     @note.save
     @notegood.save

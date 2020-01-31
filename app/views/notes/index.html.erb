@@ -67,7 +67,7 @@
           <br>
           <%= note.subject.subjectname %>
           <br>
-          <%= link_to image_tag(asset_path('extra/いいね.png'), :width => '30px'), notes_path, method: :indexgood %> 
+          <%= link_to image_tag(asset_path('extra/いいね.png'), :width => '30px'), note_indexgood_path(id: note.id) %> 
           </td>
           </tr>
         </table>
